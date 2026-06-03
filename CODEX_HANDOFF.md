@@ -47,12 +47,17 @@ Do not add D1 just to serve the current site. The current site is static and onl
     insights.html
     contact.html
     _headers
-    _redirects
 ```
 
 ## Routes
 
-`src/index.js` handles friendly routes:
+`src/index.js` should stay a minimal Static Assets passthrough:
+
+```js
+return env.ASSETS.fetch(request);
+```
+
+Cloudflare Workers Static Assets handles extensionless HTML routes:
 
 ```text
 /          -> public/index.html
@@ -60,11 +65,7 @@ Do not add D1 just to serve the current site. The current site is static and onl
 /contact   -> public/contact.html
 ```
 
-It serves files through:
-
-```js
-env.ASSETS.fetch(request)
-```
+Do not add manual Worker rewrites from `/insights` to `/insights.html` or `/contact` to `/contact.html`. Static Assets redirects direct `.html` requests back to extensionless URLs; combining those redirects with manual rewrites creates a 307 loop.
 
 ## Current pages
 
@@ -130,6 +131,14 @@ Intended audiences:
 
 The form is currently static and only shows a client-side success state. It does not submit data yet.
 
+Current public contact inbox:
+
+```text
+aicodeclaw@gmail.com
+```
+
+Until a real form backend is connected, visible contact CTAs should point users to this inbox.
+
 ## Important deployment history / gotchas
 
 1. The Cloudflare auto-generated branch `cloudflare/workers-autoconfig` had the correct preview while `main` was older.
@@ -141,7 +150,16 @@ The form is currently static and only shows a client-side success state. It does
 /* /index.html 200
 ```
 
-This caused an infinite-loop validation error under Workers Static Assets. Do not reintroduce that fallback. Friendly routes are handled in `src/index.js` instead.
+This caused an infinite-loop validation error under Workers Static Assets. Do not reintroduce that fallback.
+
+Also do not add these rewrite rules in `src/index.js` or `public/_redirects`:
+
+```text
+/insights /insights.html 200
+/contact /contact.html 200
+```
+
+Workers Static Assets already serves `/insights` and `/contact` from the corresponding `.html` files. Manual rewrites to `.html` can loop because direct `.html` requests are redirected back to extensionless URLs.
 
 5. Production should deploy with:
 
