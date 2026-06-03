@@ -131,6 +131,14 @@ Intended audiences:
 
 The form is currently static and only shows a client-side success state. It does not submit data yet.
 
+Current public contact inbox:
+
+```text
+aicodeclaw@gmail.com
+```
+
+Until a real form backend is connected, visible contact CTAs should point users to this inbox.
+
 ## Important deployment history / gotchas
 
 1. The Cloudflare auto-generated branch `cloudflare/workers-autoconfig` had the correct preview while `main` was older.
