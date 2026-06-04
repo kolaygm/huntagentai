@@ -41,6 +41,7 @@ Do not add manual Worker rewrites from extensionless paths to `.html` files. Sta
 - `migrations/0001_feedback.sql` - D1 feedback schema
 - `FEEDBACK_SETUP.md` - feedback backend setup
 - `NEWS_PUBLISHING_GUIDE.md` - news publishing workflow
+- `WEBSITE_COMPLETION_CHECKLIST.md` - production completion and release checklist
 
 ## Content updates
 
