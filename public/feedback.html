@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HuntAgent AI Feedback | Field Notes and Product Requests</title>
+  <meta name="description" content="Send feedback to HuntAgent AI about trail-camera analysis, hunt planning, target profiles, field intelligence, and AI hunting workflows.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="hunter-page" style="--hero-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/White-Tailed_Buck_Deer_in_Woods%2C_odocoileus_virginianus.jpg');--field-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Quivira-Whitetail-Buck.jpg')">
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/"><span class="brand-logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></span><span><strong>HuntAgent AI</strong><span data-en="Field feedback" data-zh="猎场反馈">Field feedback</span></span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/" data-en="Command Center" data-zh="指挥中心">Command Center</a>
+        <a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a>
+        <a href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a>
+        <a href="/contact" data-en="Request Access" data-zh="申请访问">Request Access</a>
+        <a class="active" href="/feedback" data-en="Feedback" data-zh="反馈">Feedback</a>
+      </nav>
+      <div class="nav-actions"><button class="language" data-language-toggle>中文</button><a class="btn minor" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <article class="hero-copy">
+        <div>
+          <span class="kicker">Field feedback</span>
+          <h1>Tell HuntAgent AI what would make the agent more useful in the field.</h1>
+          <p class="lead">Use this page for product requests, field observations, trail-camera workflow problems, species-specific needs, and AI scouting ideas.</p>
+        </div>
+        <div class="proof-grid">
+          <div class="proof"><b>AI</b><span>photo analysis, target profiles, and confidence mistakes</span></div>
+          <div class="proof"><b>Plan</b><span>stand choice, timing, wind-safe route, and map layers</span></div>
+          <div class="proof"><b>Recap</b><span>post-hunt notes, season memory, and missed signals</span></div>
+        </div>
+      </article>
+
+      <form class="form-panel" data-feedback-form data-feedback-type="feedback">
+        <span class="kicker">Send feedback</span>
+        <h2>Write a field note for the team.</h2>
+        <input type="hidden" name="type" value="feedback">
+        <input type="hidden" name="source_page" value="/feedback">
+        <input class="hp-field" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-grid">
+          <input class="input" name="name" data-placeholder-en="Name" placeholder="Name">
+          <input class="input" name="email" type="email" data-placeholder-en="Email (optional)" placeholder="Email (optional)">
+        </div>
+        <div class="form-grid">
+          <select class="input" name="category">
+            <option>Product request</option>
+            <option>Trail-camera analysis</option>
+            <option>Hunt planning</option>
+            <option>Target animal profile</option>
+            <option>Map and wind route</option>
+            <option>Field recap</option>
+            <option>Other</option>
+          </select>
+          <input class="input" name="title" required data-placeholder-en="Title" placeholder="Title">
+        </div>
+        <textarea class="input" name="content" rows="8" required data-placeholder-en="What should HuntAgent AI understand or improve?" placeholder="What should HuntAgent AI understand or improve?"></textarea>
+        <button class="btn" type="submit">Send feedback</button>
+        <div class="success" data-form-success>Feedback received.</div>
+        <div class="form-error" data-form-error></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><strong>HuntAgent AI</strong><span>AI hunting intelligence from trail-camera data.</span><a href="mailto:aicodeclaw@gmail.com">aicodeclaw@gmail.com</a></div>
+      <div><strong>Product</strong><a href="/">Command Center</a><a href="/insights">Field Intelligence</a><a href="/news">Industry News</a></div>
+      <div><strong>Agent focus</strong><span>Photo analysis</span><span>Hunt planning</span><span>Season memory</span></div>
+      <div><strong>Contact</strong><a href="/contact">Request access</a><a href="/feedback">Feedback</a></div>
+    </div>
+  </footer>
+  <script src="/app.js"></script>
+  <script src="/feedback.js"></script>
+</body>
+</html>

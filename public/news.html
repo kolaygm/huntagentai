@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HuntAgent AI News | Hunting Technology and Field Intelligence</title>
+  <meta name="description" content="HuntAgent AI industry news, event watch, hunting technology briefs, trail-camera intelligence, bowhunting updates, and field-ready AI scouting signals.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="hunter-page" style="--hero-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/White-Tailed_Buck_Deer_in_Woods%2C_odocoileus_virginianus.jpg');--field-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Quivira-Whitetail-Buck.jpg')">
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/"><span class="brand-logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></span><span><strong>HuntAgent AI</strong><span data-en="Industry news" data-zh="行业新闻">Industry news</span></span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/" data-en="Command Center" data-zh="指挥中心">Command Center</a>
+        <a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a>
+        <a class="active" href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a>
+        <a href="/contact" data-en="Request Access" data-zh="申请访问">Request Access</a>
+        <a href="/feedback" data-en="Feedback" data-zh="反馈">Feedback</a>
+      </nav>
+      <div class="nav-actions"><button class="language" data-language-toggle>中文</button><a class="btn minor" href="/feedback" data-en="Send feedback" data-zh="发送反馈">Send feedback</a></div>
+    </div>
+  </header>
+
+  <main data-news-root>
+    <section class="wrap news-hero">
+      <article class="news-featured" data-news-featured></article>
+      <aside class="hero-console news-calendar">
+        <div class="console-head"><div><span class="status">Publishing desk</span><h3>Industry activity timeline</h3></div><span class="tag">Updated</span></div>
+        <div data-news-calendar></div>
+      </aside>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Hunting technology briefs</span>
+          <h2>Track the industry signals that matter to serious hunters.</h2>
+          <p>Use this page for event coverage, gear signals, AI scouting ideas, trail-camera workflow notes, conservation activity, and seasonal field intelligence.</p>
+        </div>
+        <span class="tag" data-news-count>0 briefs</span>
+      </div>
+      <div class="news-toolbar">
+        <select class="input" data-news-category></select>
+        <select class="input" data-news-type></select>
+        <input class="input" data-news-search placeholder="Search events, gear, species, camera workflows">
+      </div>
+      <div class="news-grid" id="news-list" data-news-grid></div>
+    </section>
+
+    <section class="wrap section">
+      <div class="architecture">
+        <div class="panel">
+          <span class="kicker">Publishing workflow</span>
+          <h2>One data file, repeatable news updates.</h2>
+          <p>The news page is designed so the team can regularly add articles without rebuilding the visual layout. Add a new item to the news data file, upload any supporting image, and deploy.</p>
+          <ul class="list">
+            <li>Write a short hunter-facing brief, not a generic press release.</li>
+            <li>Attach the source link for event dates or industry claims.</li>
+            <li>Use field-relevant categories: trail cameras, bowhunting, outdoor technology, conservation, and event watch.</li>
+            <li>Keep every article tied to a practical question: what should a hunter watch, learn, buy, prepare, or ask the agent to analyze?</li>
+          </ul>
+        </div>
+        <div class="diagram">
+          <div class="diagram-panel">
+            <span class="kicker">Content standard</span>
+            <h3>Industry information should become field intelligence.</h3>
+            <p>Each update should translate news into a hunting workflow: camera setup, target patterning, route planning, weather timing, gear readiness, or post-hunt learning.</p>
+            <div class="mini-metrics">
+              <div class="metric"><b>1</b><span>source link</span></div>
+              <div class="metric"><b>3</b><span>hunter takeaways</span></div>
+              <div class="metric"><b>1</b><span>field decision</span></div>
+              <div class="metric"><b>7d</b><span>review cycle</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><strong>HuntAgent AI</strong><span>AI hunting intelligence from trail-camera data.</span><a href="mailto:aicodeclaw@gmail.com">aicodeclaw@gmail.com</a></div>
+      <div><strong>Product</strong><a href="/">Command Center</a><a href="/insights">Field Intelligence</a><a href="/news">Industry News</a></div>
+      <div><strong>News desk</strong><span>Event watch</span><span>Trail-camera briefs</span><span>AI scouting signals</span></div>
+      <div><strong>Contact</strong><a href="/contact">Request access</a><a href="/feedback">Feedback</a><a href="mailto:aicodeclaw@gmail.com">Email</a></div>
+    </div>
+  </footer>
+  <script src="/news-data.js"></script>
+  <script src="/news.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

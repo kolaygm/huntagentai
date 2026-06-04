@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HuntAgent AI Feedback Admin</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="admin-page">
+  <main class="wrap admin-shell" data-feedback-admin>
+    <section class="admin-top">
+      <div>
+        <span class="kicker">Feedback Admin</span>
+        <h1>HuntAgent AI feedback timeline</h1>
+        <p class="lead">Manage access requests and field feedback by time, name, email, category, title, content, and status.</p>
+      </div>
+      <a class="btn secondary" href="/">Open site</a>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-token-row">
+        <input class="input" data-admin-token placeholder="Admin token">
+        <button class="btn" type="button" data-save-token>Use token</button>
+        <button class="btn secondary" type="button" data-refresh-feedback>Refresh</button>
+      </div>
+      <div class="admin-filters">
+        <select class="input" data-status-filter>
+          <option value="">All statuses</option>
+          <option value="new">new</option>
+          <option value="reviewing">reviewing</option>
+          <option value="responded">responded</option>
+          <option value="closed">closed</option>
+          <option value="archived">archived</option>
+        </select>
+        <select class="input" data-type-filter>
+          <option value="">All types</option>
+          <option value="access">access</option>
+          <option value="feedback">feedback</option>
+        </select>
+        <input class="input" data-search-feedback placeholder="Search name, email, title, category, content">
+      </div>
+      <div class="admin-error" data-admin-error></div>
+      <div class="admin-stats" data-feedback-stats></div>
+    </section>
+
+    <section class="feedback-list" data-feedback-list></section>
+  </main>
+
+  <script src="/app.js"></script>
+  <script src="/feedback.js"></script>
+</body>
+</html>

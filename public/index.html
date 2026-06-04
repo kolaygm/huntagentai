@@ -4,32 +4,395 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HuntAgent AI — Hunting Intelligence Platform</title>
-<meta name="description" content="HuntAgent AI is an AI-powered hunting intelligence platform for trail-camera networks, target animal tracking, scouting reports, maps, predictions, device operations, and outfitter workflows." />
+<meta name="description" content="HuntAgent AI is an AI-powered hunting intelligence platform for trail-camera networks, target animal tracking, scouting reports, maps, predictions, device operations, and field workflows." />
 <style>
 :root{--bg:#040605;--panel:#0d1210;--panel2:#121a16;--line:rgba(255,255,255,.12);--text:#f4f7f1;--muted:#9aa59e;--green:#82d36d;--green2:#4da85d;--amber:#e5a642;--red:#ff7063;--violet:#9380ff;--blue:#79a7ff;--r:24px;--shadow:0 30px 90px rgba(0,0,0,.48);--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"PingFang SC","Microsoft YaHei",sans-serif;--buck:url('https://commons.wikimedia.org/wiki/Special:FilePath/White-Tailed_Buck_Deer_in_Woods%2C_odocoileus_virginianus.jpg');--buck2:url('https://commons.wikimedia.org/wiki/Special:FilePath/Quivira-Whitetail-Buck.jpg');--deer:url('https://commons.wikimedia.org/wiki/Special:FilePath/White-tailed_deer_%2824689011918%29.jpg')}
 *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;color:var(--text);font-family:var(--font);background:radial-gradient(circle at 12% -12%,rgba(130,211,109,.20),transparent 30%),radial-gradient(circle at 90% 5%,rgba(121,167,255,.12),transparent 28%),radial-gradient(circle at 72% 75%,rgba(229,166,66,.09),transparent 34%),linear-gradient(180deg,#030504,#07100b 52%,#030504);letter-spacing:-.01em}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}.shell{display:grid;grid-template-columns:298px minmax(0,1fr);min-height:100vh}.side{position:sticky;top:0;height:100vh;padding:22px 18px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(8,12,10,.97),rgba(6,9,8,.90));backdrop-filter:blur(24px);overflow:auto;z-index:5}.brand{display:flex;align-items:center;gap:12px;padding:8px 8px 18px;border-bottom:1px solid var(--line)}.logo{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:radial-gradient(circle at 35% 28%,#f3f7ff 0 7%,transparent 9%),radial-gradient(circle at 34% 42%,rgba(150,176,255,.94),transparent 34%),radial-gradient(circle at 68% 72%,rgba(130,211,109,.92),transparent 40%),linear-gradient(135deg,#1b2d23,#101724);box-shadow:0 0 0 1px rgba(255,255,255,.16),0 0 34px rgba(130,211,109,.23)}.logo svg{width:27px}.brand h1{margin:0;font-size:19px;line-height:1;letter-spacing:-.04em}.brand small{display:block;margin-top:5px;color:var(--muted);font-size:12px;letter-spacing:0}.select{border:1px solid var(--line);border-radius:18px;padding:13px;margin:18px 2px;background:rgba(255,255,255,.035)}.select small,.nav-title{display:block;color:#6f7a73;font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:800}.select strong{display:flex;justify-content:space-between;margin-top:7px;font-size:14px}.nav-title{margin:21px 10px 8px}.nav{display:grid;gap:6px}.nav a{display:flex;gap:10px;align-items:center;padding:12px;border-radius:15px;border:1px solid transparent;color:#ccd4ce;font-size:14px}.nav a:hover,.nav a.active{background:rgba(130,211,109,.10);border-color:rgba(130,211,109,.25);color:#fff}.nav i{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--green);font-style:normal}.agent-card{margin-top:22px;border:1px solid rgba(130,211,109,.24);border-radius:20px;padding:16px;background:linear-gradient(135deg,rgba(130,211,109,.13),rgba(147,128,255,.09));box-shadow:inset 0 1px rgba(255,255,255,.08)}.agent-card h3{margin:0 0 8px;font-size:15px}.agent-card p{margin:0 0 12px;color:var(--muted);font-size:12.5px;line-height:1.5}.progress{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}.progress span{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--green),#c0ec85)}.main{min-width:0;padding:24px 28px 54px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}.top h2{margin:0;font-size:28px;letter-spacing:-.05em}.sub{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:14px;margin-top:6px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(130,211,109,.85)}.actions{display:flex;gap:10px;align-items:center}.pill,.lang{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:10px 13px;font-size:13px;color:#d7ded8}.lang{cursor:pointer}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(130,211,109,.34);background:linear-gradient(135deg,rgba(130,211,109,.95),rgba(58,121,65,.92));border-radius:15px;padding:12px 16px;font-weight:800;color:#fff;box-shadow:0 16px 36px rgba(59,117,62,.25);cursor:pointer}.btn.secondary{background:rgba(255,255,255,.05);box-shadow:none;border-color:var(--line);font-weight:700}.grid{display:grid;gap:18px}.hero{grid-template-columns:minmax(0,1.4fr) minmax(360px,.9fr)}.card{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));box-shadow:var(--shadow);overflow:hidden}.hero-card{position:relative;min-height:450px;padding:28px;display:flex;flex-direction:column;justify-content:space-between}.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,6,.94) 0%,rgba(5,8,6,.72) 47%,rgba(5,8,6,.17) 78%),var(--buck) center/cover no-repeat;filter:saturate(1.04) contrast(1.08)}.hero-card:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 53%,rgba(130,211,109,.18),transparent 29%),linear-gradient(0deg,rgba(0,0,0,.26),transparent)}.inner{position:relative;z-index:1}.kicker{display:inline-flex;align-items:center;gap:8px;color:#dfeee0;border:1px solid rgba(130,211,109,.28);background:rgba(130,211,109,.13);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.score{display:flex;align-items:flex-end;gap:12px;margin:22px 0 6px}.score strong{font-size:92px;line-height:.85;color:var(--green);letter-spacing:-.08em}.score span{font-size:34px;color:rgba(255,255,255,.34);font-weight:800}.hero-card h3{margin:0 0 12px;font-size:34px;letter-spacing:-.055em;max-width:700px}.hero-copy{margin:0 0 18px;color:#dbe4dc;line-height:1.6;max-width:720px}.evidence{display:grid;gap:10px;margin:18px 0 24px;max-width:620px}.evidence div{display:flex;gap:10px;color:#d8e1da;font-size:14px}.cta{display:flex;gap:12px;flex-wrap:wrap}.right-stack{display:grid;gap:18px}.brief,.section{padding:22px}.brief h3,.section h3{margin:0 0 14px;font-size:20px;letter-spacing:-.03em}.brief-list{display:grid;gap:12px}.brief-row{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.04)}.ic{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(130,211,109,.12);color:var(--green);font-size:20px}.brief-row p{margin:0;color:var(--muted);font-size:12.5px}.tag{font-size:12px;border-radius:999px;padding:6px 9px;background:rgba(130,211,109,.13);color:#b9f1ad;border:1px solid rgba(130,211,109,.22)}.tag.amber{background:rgba(229,166,66,.14);color:#ffd78c;border-color:rgba(229,166,66,.25)}.map{position:relative;min-height:250px;padding:20px;background:radial-gradient(circle at 38% 52%,rgba(229,166,66,.32),transparent 14%),radial-gradient(circle at 58% 39%,rgba(130,211,109,.34),transparent 18%),radial-gradient(circle at 70% 68%,rgba(130,211,109,.18),transparent 16%),linear-gradient(135deg,#111b18,#060908);overflow:hidden}.map:before{content:"";position:absolute;inset:0;opacity:.28;background:repeating-linear-gradient(38deg,transparent 0 22px,rgba(255,255,255,.06) 23px 24px),repeating-linear-gradient(112deg,transparent 0 36px,rgba(124,200,255,.07) 37px 38px)}.map-pin{position:absolute;width:44px;height:44px;border:2px solid var(--green);border-radius:50%;display:grid;place-items:center;background:rgba(8,14,12,.82);box-shadow:0 0 25px rgba(130,211,109,.25);font-size:12px}.pin1{left:58%;top:34%}.pin2{left:25%;top:62%}.pin3{left:72%;top:67%}.heat{position:absolute;left:38%;top:46%;width:95px;height:95px;border-radius:50%;background:radial-gradient(circle,rgba(229,166,66,.86),rgba(229,166,66,.05) 68%,transparent);display:grid;place-items:center;font-size:28px}.map-title{position:relative;z-index:1}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{padding:18px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.045)}.stat small{color:var(--muted);font-size:12px}.stat b{display:block;margin-top:6px;font-size:28px;letter-spacing:-.05em}.stat em{font-style:normal;color:var(--green);font-size:12px}.modules{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}.module{padding:20px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.032));min-height:188px;display:flex;flex-direction:column;justify-content:space-between}.module i{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:rgba(130,211,109,.12);font-style:normal;color:var(--green);font-size:22px}.module h4{margin:16px 0 8px;font-size:17px}.module p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.workspace{display:grid;grid-template-columns:290px minmax(0,1fr);gap:18px;margin-top:18px}.tabs{padding:16px}.tabs button{width:100%;text-align:left;border:1px solid transparent;border-radius:16px;background:transparent;padding:13px 14px;margin:3px 0;cursor:pointer;color:#cbd4ce}.tabs button.active,.tabs button:hover{background:rgba(130,211,109,.10);border-color:rgba(130,211,109,.24);color:#fff}.view{display:none;padding:22px;min-height:520px}.view.active{display:block}.view-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:18px}.view-head h3{margin:0;font-size:26px;letter-spacing:-.05em}.view-head p{margin:7px 0 0;color:var(--muted);max-width:760px;line-height:1.55}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.timeline{display:grid;gap:12px}.step{display:grid;grid-template-columns:60px 1fr;gap:14px;padding:15px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04)}.time{color:var(--green);font-weight:900}.step h4{margin:0 0 4px}.step p,.mini p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.mini{padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04)}.mini h4{margin:0 0 8px}.album{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{min-height:210px;border-radius:20px;border:1px solid var(--line);overflow:hidden;background:var(--deer) center/cover no-repeat;position:relative}.photo:nth-child(2){background-image:var(--buck2)}.photo:nth-child(3){background-image:var(--buck)}.photo:nth-child(4){background-image:linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),var(--deer)}.photo .cap{position:absolute;left:12px;right:12px;bottom:12px;border-radius:15px;padding:12px;background:rgba(4,7,6,.76);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12)}.photo b{display:block}.photo small{display:block;color:#d5ded6;margin-top:5px}.profile{display:grid;grid-template-columns:340px 1fr;gap:16px}.buck-photo{min-height:380px;border-radius:22px;background:var(--buck) center/cover no-repeat;border:1px solid var(--line)}.bars{height:116px;display:flex;align-items:end;gap:7px;padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.bars span{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,var(--green),rgba(130,211,109,.28));height:calc(var(--h)*1%)}.devices{display:grid;gap:12px}.device{display:grid;grid-template-columns:1.2fr repeat(4,1fr) auto;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04)}.device b{font-size:17px}.device small{display:block;color:var(--muted);margin-top:3px}.chat{display:grid;gap:12px}.bubble{max-width:830px;padding:14px 16px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.045);line-height:1.55}.bubble.ai{border-color:rgba(130,211,109,.25);background:rgba(130,211,109,.08)}.table{width:100%;border-collapse:separate;border-spacing:0 10px}.table th{color:var(--muted);font-size:12px;text-align:left;padding:0 12px}.table td{background:rgba(255,255,255,.04);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 12px}.table td:first-child{border-left:1px solid var(--line);border-radius:15px 0 0 15px}.table td:last-child{border-right:1px solid var(--line);border-radius:0 15px 15px 0}.intelligence{margin-top:18px}.head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:14px}.head h3{margin:0;font-size:24px;letter-spacing:-.04em}.head p{margin:6px 0 0;color:var(--muted);line-height:1.5}.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.report-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.032));padding:18px;min-height:205px;display:flex;flex-direction:column;justify-content:space-between}.report-card h4{margin:14px 0 8px;font-size:18px}.report-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.contact-cta{margin-top:18px;border:1px solid rgba(130,211,109,.25);border-radius:26px;padding:24px;background:linear-gradient(135deg,rgba(130,211,109,.12),rgba(121,167,255,.08));display:flex;justify-content:space-between;gap:18px;align-items:center}.contact-cta h3{margin:0;font-size:25px}.contact-cta p{margin:7px 0 0;color:#d8e1da;line-height:1.55}.footer{margin-top:20px;border-top:1px solid var(--line);padding:30px 0 0;color:var(--muted)}.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:22px}.footer b{color:#f4f7f1}.footer h4{margin:0 0 12px;color:#f4f7f1;font-size:13px;text-transform:uppercase;letter-spacing:.13em}.footer a,.footer span{display:block;margin:9px 0;color:var(--muted);font-size:13px}.footer a:hover{color:#fff}.legal{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:#87938c;display:flex;justify-content:space-between;gap:18px}.foot-brand{display:flex;gap:12px;align-items:flex-start}.foot-brand .logo{flex:0 0 auto}@media(max-width:1100px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto}.nav{grid-template-columns:repeat(2,1fr)}.hero,.workspace,.two,.profile{grid-template-columns:1fr}.modules,.report-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.main{padding:18px}.top,.contact-cta,.view-head,.head,.legal{flex-direction:column;align-items:stretch}.modules,.album,.stats,.report-grid,.footer-grid{grid-template-columns:1fr}.hero-card{min-height:540px}.score strong{font-size:74px}.device{grid-template-columns:1fr 1fr}.side{padding:18px}.actions{flex-wrap:wrap}}
 </style>
+<style>
+.map {
+  background:
+    linear-gradient(90deg, rgba(5, 8, 6, 0.78), rgba(5, 8, 6, 0.42)),
+    url("https://tile.openstreetmap.org/14/4171/6372.png") left top / 50% 50% no-repeat,
+    url("https://tile.openstreetmap.org/14/4172/6372.png") right top / 50% 50% no-repeat,
+    url("https://tile.openstreetmap.org/14/4171/6373.png") left bottom / 50% 50% no-repeat,
+    url("https://tile.openstreetmap.org/14/4172/6373.png") right bottom / 50% 50% no-repeat !important;
+}
+.map:before {
+  opacity: 1;
+  background:
+    linear-gradient(0deg, rgba(4, 7, 6, 0.2), rgba(4, 7, 6, 0.2)),
+    radial-gradient(circle at 42% 55%, rgba(229, 166, 66, 0.34), transparent 18%),
+    radial-gradient(circle at 60% 36%, rgba(130, 211, 109, 0.18), transparent 20%) !important;
+}
+.map:after {
+  content: "OpenStreetMap base layer";
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 5px 8px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(4, 7, 6, 0.72);
+  font-size: 11px;
+}
+.heat {
+  border: 1px solid rgba(229, 166, 66, 0.72);
+  font-size: 0 !important;
+}
+.heat:after {
+  content: "AI zone";
+  color: #ffe0a7;
+  font-size: 12px;
+  font-weight: 900;
+}
+.map-route {
+  position: absolute;
+  left: 23%;
+  top: 72%;
+  width: 45%;
+  height: 34%;
+  z-index: 1;
+  border-top: 3px dashed rgba(130, 211, 109, 0.82);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+  filter: drop-shadow(0 0 10px rgba(130, 211, 109, 0.4));
+}
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--line);
+  background: rgba(6, 12, 9, 0.88);
+  backdrop-filter: blur(20px);
+}
+.site-nav-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.site-nav-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 190px;
+}
+.site-brand .logo {
+  flex: 0 0 auto;
+}
+.site-brand strong {
+  display: block;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+.site-brand span span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #d7ded8;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.site-nav-links a {
+  padding: 9px 0;
+}
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: #fff;
+}
+.site-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.language {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 9px 12px;
+  color: #d7ded8;
+  cursor: pointer;
+}
+.btn.minor {
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 13px;
+  font-size: 13px;
+}
+.side {
+  top: 76px;
+  height: calc(100vh - 76px);
+}
+@media (max-width: 1100px) {
+  .side {
+    top: auto;
+    height: auto;
+  }
+  .site-nav-links {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .site-nav-wrap {
+    padding: 0 16px;
+  }
+  .site-nav-inner {
+    min-height: 68px;
+  }
+  .site-brand span span,
+  .site-nav-actions .btn {
+    display: none;
+  }
+}
+.map {
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(3, 6, 5, 0.74), rgba(3, 6, 5, 0.42)),
+    linear-gradient(0deg, rgba(3, 6, 5, 0.64), rgba(3, 6, 5, 0.16)),
+    url("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/14/6372/4171") left top / 50% 50% no-repeat,
+    url("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/14/6372/4172") right top / 50% 50% no-repeat,
+    url("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/14/6373/4171") left bottom / 50% 50% no-repeat,
+    url("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/14/6373/4172") right bottom / 50% 50% no-repeat !important;
+}
+.map:before {
+  z-index: -1;
+  opacity: 1;
+  background:
+    radial-gradient(circle at 44% 53%, rgba(229, 166, 66, 0.58), rgba(229, 166, 66, 0.12) 13%, transparent 25%),
+    radial-gradient(circle at 57% 44%, rgba(130, 211, 109, 0.22), transparent 23%),
+    radial-gradient(circle at 72% 62%, rgba(130, 211, 109, 0.18), transparent 18%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent) !important;
+}
+.map:after {
+  content: "Satellite intelligence layer";
+}
+.map-title {
+  max-width: 82%;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
+}
+.map-title h3 {
+  margin: 14px 0 0;
+  line-height: 1.15;
+}
+.map-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.65));
+}
+.map-lines path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.route-recommend {
+  stroke: rgba(139, 224, 120, 0.9);
+  stroke-width: 1.8;
+  stroke-dasharray: 7 6;
+}
+.route-buck {
+  stroke: rgba(239, 171, 67, 0.88);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 7;
+}
+.route-channel {
+  stroke: rgba(126, 174, 255, 0.42);
+  stroke-width: 1.1;
+}
+.map-event {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c9f6bd;
+  box-shadow: 0 0 18px rgba(130, 211, 109, 0.92);
+}
+.target-event {
+  background: #f7ab32;
+  box-shadow: 0 0 18px rgba(229, 166, 66, 0.95);
+}
+.e1 { left: 21%; top: 36%; }
+.e2 { left: 32%; top: 48%; }
+.e3 { left: 51%; top: 56%; }
+.e4 { left: 63%; top: 43%; }
+.e5 { left: 74%; top: 32%; }
+.e6 { left: 83%; top: 62%; }
+.e7 { left: 42%; top: 69%; }
+.e8 { left: 58%; top: 74%; }
+.wind-arrow {
+  position: absolute;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #b9e6ad;
+  font-size: 30px;
+  font-weight: 900;
+  opacity: 0.82;
+  text-shadow: 0 0 18px rgba(130, 211, 109, 0.55);
+  transform: rotate(128deg);
+}
+.w1 { right: 18%; top: 17%; }
+.w2 { right: 27%; top: 30%; }
+.w3 { right: 38%; top: 20%; }
+.map-pin {
+  z-index: 4;
+  width: 50px;
+  height: 50px;
+  border-width: 3px;
+  color: #fff;
+  font-weight: 850;
+  box-shadow: 0 0 0 4px rgba(130, 211, 109, 0.12), 0 0 26px rgba(130, 211, 109, 0.45);
+}
+.heat {
+  z-index: 3;
+  left: 40%;
+  top: 50%;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(229, 166, 66, 0.86);
+  background:
+    radial-gradient(circle, rgba(229, 166, 66, 0.9), rgba(229, 166, 66, 0.2) 58%, transparent 72%);
+  box-shadow: 0 0 40px rgba(229, 166, 66, 0.32);
+}
+.map-legend {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 5;
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(3, 6, 5, 0.72);
+  backdrop-filter: blur(12px);
+  color: rgba(244, 247, 241, 0.86);
+  font-size: 12px;
+}
+.map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.legend-dot,
+.legend-ring,
+.legend-hot,
+.legend-route,
+.legend-entry {
+  width: 18px;
+  height: 10px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c9f6bd;
+}
+.legend-ring {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+}
+.legend-hot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f7ab32;
+}
+.legend-route {
+  border-top: 2px dashed #8be078;
+}
+.legend-entry {
+  border-top: 2px dashed #efab43;
+}
+.map-scale {
+  position: absolute;
+  right: 18px;
+  bottom: 42px;
+  z-index: 4;
+  width: 110px;
+  height: 24px;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  text-shadow: 0 1px 8px #000;
+}
+.map:not(.map-large) .map-legend,
+.map:not(.map-large) .map-scale {
+  display: none;
+}
+.map-large .map-title {
+  max-width: 68%;
+}
+.map-large .map-pin {
+  width: 58px;
+  height: 58px;
+}
+.map-large .heat {
+  width: 138px;
+  height: 138px;
+}
+</style>
 </head>
 <body>
+<header class="site-nav">
+  <div class="site-nav-wrap site-nav-inner">
+    <a class="site-brand" href="/" aria-label="HuntAgent AI home"><span class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></span><span><strong>HuntAgent AI</strong><span data-en="Hunter intelligence" data-zh="猎人情报">Hunter intelligence</span></span></a>
+    <nav class="site-nav-links" aria-label="Primary">
+      <a class="active" href="/" data-en="Command Center" data-zh="指挥中心">Command Center</a>
+      <a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a>
+      <a href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a>
+      <a href="/contact" data-en="Request Access" data-zh="申请访问">Request Access</a>
+      <a href="/feedback" data-en="Feedback" data-zh="反馈">Feedback</a>
+    </nav>
+    <div class="site-nav-actions"><button class="language" id="langBtn" data-language-toggle>中文</button><a class="btn minor" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></div>
+  </div>
+</header>
 <div class="shell">
 <aside class="side">
   <div class="brand"><div class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></div><div><h1>HuntAgent AI</h1><small data-en="AI hunting intelligence platform" data-zh="专业级 AI 猎场情报平台">AI hunting intelligence platform</small></div></div>
   <div class="select"><small data-en="Workspace" data-zh="工作区">Workspace</small><strong><span data-en="North Ridge Property" data-zh="North Ridge 猎场">North Ridge Property</span><span>⌄</span></strong></div>
   <div class="nav-title" data-en="Platform" data-zh="平台功能">Platform</div>
-  <nav class="nav"><a class="active" href="#dashboard"><i>⌂</i><span data-en="Command Center" data-zh="指挥中心">Command Center</span></a><a href="#workspace"><i>✦</i><span data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</span></a><a href="#events"><i>▦</i><span data-en="Trail Events" data-zh="相机事件">Trail Events</span></a><a href="#devices"><i>▣</i><span data-en="Device Operations" data-zh="设备运营">Device Operations</span></a><a href="/insights"><i>◈</i><span data-en="Industry Intelligence" data-zh="行业情报简报">Industry Intelligence</span></a><a href="/contact"><i>↗</i><span data-en="Contact / Demo" data-zh="联系 / 预约演示">Contact / Demo</span></a></nav>
+  <nav class="nav"><a class="active" href="#dashboard"><i>⌂</i><span data-en="Command Center" data-zh="指挥中心">Command Center</span></a><a href="#workspace"><i>✦</i><span data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</span></a><a href="#events"><i>▦</i><span data-en="Trail Events" data-zh="相机事件">Trail Events</span></a><a href="#devices"><i>▣</i><span data-en="Device Operations" data-zh="设备运营">Device Operations</span></a><a href="/insights"><i>◈</i><span data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</span></a><a href="/news"><i>⌁</i><span data-en="Industry News" data-zh="行业新闻">Industry News</span></a><a href="/contact"><i>↗</i><span data-en="Request Access" data-zh="申请访问">Request Access</span></a><a href="/feedback"><i>✎</i><span data-en="Feedback" data-zh="反馈">Feedback</span></a></nav>
   <div class="agent-card"><h3 data-en="AI analysis in progress" data-zh="AI 正在分析">AI analysis in progress</h3><p data-en="3 cameras, 286 recent captures, weather, wind, sunrise, moon phase, target buck history, and device telemetry." data-zh="3 台相机、286 张近期照片、天气、风向、日出、月相、目标公鹿历史和设备状态。">3 cameras, 286 recent captures, weather, wind, sunrise, moon phase, target buck history, and device telemetry.</p><div class="progress"><span></span></div></div>
 </aside>
 <main class="main">
-  <section id="dashboard" class="top"><div><h2 data-en="Hunting Intelligence Command Center" data-zh="AI 猎场情报指挥中心">Hunting Intelligence Command Center</h2><div class="sub"><span class="dot"></span><span data-en="Last update 09:41 · 3 cameras monitored · HuntAgent AI online" data-zh="最近更新 09:41 · 正在监控 3 台相机 · HuntAgent AI 在线">Last update 09:41 · 3 cameras monitored · HuntAgent AI online</span></div></div><div class="actions"><button class="lang" id="langBtn">中文</button><a class="pill" href="/insights" data-en="Industry Briefs" data-zh="行业简报">Industry Briefs</a><a class="btn" href="/contact" data-en="Request demo" data-zh="预约演示">Request demo</a></div></section>
+  <section id="dashboard" class="top"><div><h2 data-en="Hunting Intelligence Command Center" data-zh="AI 猎场情报指挥中心">Hunting Intelligence Command Center</h2><div class="sub"><span class="dot"></span><span data-en="Last update 09:41 · 3 cameras monitored · HuntAgent AI online" data-zh="最近更新 09:41 · 正在监控 3 台相机 · HuntAgent AI 在线">Last update 09:41 · 3 cameras monitored · HuntAgent AI online</span></div></div><div class="actions"><a class="pill" href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a><a class="pill" href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a><a class="btn" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></div></section>
   <section class="grid hero">
     <article class="card hero-card"><div class="inner"><span class="kicker" data-en="AI decision engine for trail-camera networks" data-zh="面向打猎相机网络的 AI 决策引擎">AI decision engine for trail-camera networks</span><div class="score"><strong>78</strong><span>/100</span></div><h3 data-en="North Ridge is the best evening setup before 6:05 PM." data-zh="今晚 18:05 前，North Ridge 是最佳蹲守点位。">North Ridge is the best evening setup before 6:05 PM.</h3><p class="hero-copy" data-en="HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow." data-zh="HuntAgent AI 将打猎相机照片、目标动物历史、风向、天气、地图和设备状态转化为专业级猎场情报工作流。">HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow.</p><div class="evidence"><div>◎ <span data-en="Target buck appeared near Pixie 3 evenings in a row." data-zh="目标公鹿连续 3 个黄昏出现在 Pixie 附近。">Target buck appeared near Pixie 3 evenings in a row.</span></div><div>≋ <span data-en="Wind is favorable for the south creek approach." data-zh="风向有利于从南侧溪谷路线进入。">Wind is favorable for the south creek approach.</span></div><div>♨ <span data-en="Temperature drop matches high-activity historical pattern." data-zh="降温符合历史高活跃规律。">Temperature drop matches high-activity historical pattern.</span></div></div><div class="cta"><button class="btn" data-en="Generate tonight's plan" data-zh="生成今晚计划">Generate tonight's plan</button><button class="btn secondary" data-en="View evidence" data-zh="查看证据">View evidence</button></div></div></article>
-    <div class="right-stack"><article class="card brief"><h3 data-en="Agent Brief" data-zh="Agent 简报">Agent Brief</h3><div class="brief-list"><div class="brief-row"><div class="ic">🦌</div><div><b data-en="Big 8 likely active" data-zh="Big 8 可能活跃">Big 8 likely active</b><p data-en="Last seen Pixie · 04:16 · confidence 82%" data-zh="最近出现 Pixie · 04:16 · 置信度 82%">Last seen Pixie · 04:16 · confidence 82%</p></div><span class="tag">Target</span></div><div class="brief-row"><div class="ic">🔋</div><div><b data-en="Creek Cam needs service" data-zh="Creek Cam 需要处理">Creek Cam needs service</b><p data-en="Battery 18%, weak signal, may not last weekend" data-zh="电量 18%，信号弱，可能撑不过周末">Battery 18%, weak signal, may not last weekend</p></div><span class="tag amber">Action</span></div><div class="brief-row"><div class="ic">⌁</div><div><b data-en="Best window 5:40–7:10 PM" data-zh="最佳窗口 17:40–19:10">Best window 5:40–7:10 PM</b><p data-en="Activity model peaks around last light" data-zh="活跃模型在天黑前后达到峰值">Activity model peaks around last light</p></div><span class="tag">High</span></div></div></article><article class="card map"><div class="map-title"><span class="kicker" data-en="AI field map" data-zh="AI 猎场地图">AI field map</span><h3 data-en="Hot zone: timber edge between Pixie and Creek Cam" data-zh="热点：Pixie 与 Creek Cam 之间的林缘">Hot zone: timber edge between Pixie and Creek Cam</h3></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div></article></div>
+    <div class="right-stack"><article class="card brief"><h3 data-en="Agent Brief" data-zh="Agent 简报">Agent Brief</h3><div class="brief-list"><div class="brief-row"><div class="ic">🦌</div><div><b data-en="Big 8 likely active" data-zh="Big 8 可能活跃">Big 8 likely active</b><p data-en="Last seen Pixie · 04:16 · confidence 82%" data-zh="最近出现 Pixie · 04:16 · 置信度 82%">Last seen Pixie · 04:16 · confidence 82%</p></div><span class="tag">Target</span></div><div class="brief-row"><div class="ic">🔋</div><div><b data-en="Creek Cam needs service" data-zh="Creek Cam 需要处理">Creek Cam needs service</b><p data-en="Battery 18%, weak signal, may not last weekend" data-zh="电量 18%，信号弱，可能撑不过周末">Battery 18%, weak signal, may not last weekend</p></div><span class="tag amber">Action</span></div><div class="brief-row"><div class="ic">⌁</div><div><b data-en="Best window 5:40–7:10 PM" data-zh="最佳窗口 17:40–19:10">Best window 5:40–7:10 PM</b><p data-en="Activity model peaks around last light" data-zh="活跃模型在天黑前后达到峰值">Activity model peaks around last light</p></div><span class="tag">High</span></div></div></article><article class="card map"><div class="map-title"><span class="kicker" data-en="AI field map" data-zh="AI 猎场地图">AI field map</span><h3 data-en="Hot zone: timber edge between Pixie and Creek Cam" data-zh="热点：Pixie 与 Creek Cam 之间的林缘">Hot zone: timber edge between Pixie and Creek Cam</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-4 82 C16 72 26 70 42 76 S69 84 105 70"/><path class="route-recommend" d="M12 86 C27 78 33 67 45 62 S63 54 74 42"/><path class="route-buck" d="M23 26 C34 39 42 47 51 49 S61 50 66 58"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div></article></div>
   </section>
   <section class="stats"><div class="stat"><small data-en="New events" data-zh="新事件">New events</small><b>24</b><em data-en="+31% vs yesterday" data-zh="较昨日 +31%">+31% vs yesterday</em></div><div class="stat"><small data-en="Target animal events" data-zh="目标动物事件">Target animal events</small><b>4</b><em data-en="2 high priority" data-zh="2 个高优先级">2 high priority</em></div><div class="stat"><small data-en="Empty triggers filtered" data-zh="空触发过滤">Empty triggers filtered</small><b>17</b><em data-en="AI auto archived" data-zh="AI 自动归档">AI auto archived</em></div><div class="stat"><small data-en="Device alerts" data-zh="设备预警">Device alerts</small><b>1</b><em data-en="Creek Cam battery" data-zh="Creek Cam 电池">Creek Cam battery</em></div></section>
   <section class="grid modules"><div class="module"><i>✦</i><div><h4 data-en="AI Agent Copilot" data-zh="AI 智能体助手">AI Agent Copilot</h4><p data-en="Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history." data-zh="用自然语言提问，让 Agent 查询相机、照片、天气、地图和历史数据。">Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history.</p></div></div><div class="module"><i>🧭</i><div><h4 data-en="Tonight's Plan" data-zh="今晚行动计划">Tonight's Plan</h4><p data-en="Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion." data-zh="生成时间窗口、进入路线、蹲守点、提醒和推荐证据。">Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion.</p></div></div><div class="module"><i>🗺</i><div><h4 data-en="Field Map & Hot Zones" data-zh="猎场地图与热区">Field Map & Hot Zones</h4><p data-en="See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions." data-zh="查看相机位置、近期事件、风向、预测活动走廊和 AI 路线建议。">See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions.</p></div></div><div class="module"><i>🦌</i><div><h4 data-en="Target Buck Profiles" data-zh="目标动物档案">Target Buck Profiles</h4><p data-en="Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence." data-zh="聚合同一只动物的照片，追踪频次、时间规律、区域和置信度。">Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence.</p></div></div><div class="module"><i>▦</i><div><h4 data-en="Smart Album" data-zh="智能图集">Smart Album</h4><p data-en="Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events." data-zh="识别物种、过滤空触发、检测人/车辆，并把照片变成结构化事件。">Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events.</p></div></div><div class="module"><i>▰</i><div><h4 data-en="Prediction Analytics" data-zh="预测分析">Prediction Analytics</h4><p data-en="Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends." data-zh="结合相机历史、天气变化、日出、月相和气压趋势预测小时级活动。">Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends.</p></div></div><div class="module"><i>🔧</i><div><h4 data-en="Device Operations" data-zh="设备运营">Device Operations</h4><p data-en="Translate battery, signal, storage, and SIM data into plain-language maintenance decisions." data-zh="把电池、信号、存储和 SIM 数据翻译成清晰的维护建议。">Translate battery, signal, storage, and SIM data into plain-language maintenance decisions.</p></div></div><div class="module"><i>☷</i><div><h4 data-en="Reports & Automation" data-zh="报告与自动化">Reports & Automation</h4><p data-en="Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows." data-zh="生成侦察报告、周报、目标提醒、团队记录和自动化工作流。">Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows.</p></div></div></section>
   <section id="workspace" class="workspace"><aside class="card tabs"><button class="active" data-view="plan" data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</button><button data-view="mapview" data-en="Field Map" data-zh="猎场地图">Field Map</button><button data-view="album" data-en="Smart Album" data-zh="智能图集">Smart Album</button><button data-view="profile" data-en="Target Profile" data-zh="目标档案">Target Profile</button><button data-view="predict" data-en="Predictions" data-zh="活动预测">Predictions</button><button data-view="chat" data-en="Agent Chat" data-zh="Agent 对话">Agent Chat</button></aside><div class="card">
-    <div class="view active" id="plan"><div class="view-head"><div><h3 data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</h3><p data-en="A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history." data-zh="基于打猎相机照片、风向、地形、气温和目标公鹿历史生成的战术计划。">A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history.</p></div><button class="btn" data-en="Set reminder" data-zh="设置提醒">Set reminder</button></div><div class="two"><div class="timeline"><div class="step"><div class="time">4:55</div><div><h4 data-en="Check wind" data-zh="检查风向">Check wind</h4><p data-en="Confirm the south creek approach remains downwind from the main travel corridor." data-zh="确认南侧溪谷路线仍处于主通道下风侧。">Confirm the south creek approach remains downwind from the main travel corridor.</p></div></div><div class="step"><div class="time">5:10</div><div><h4 data-en="Enter from south route" data-zh="从南侧路线进入">Enter from south route</h4><p data-en="Stay low near the creek line, avoid the ridge spine, and move slowly." data-zh="沿溪谷低姿态进入，避开山脊主线，慢速移动。">Stay low near the creek line, avoid the ridge spine, and move slowly.</p></div></div><div class="step"><div class="time">5:35</div><div><h4 data-en="Settle at observation point" data-zh="到达观察点">Settle at observation point</h4><p data-en="Be stationary before the 5:40 activity window opens." data-zh="在 17:40 活跃窗口开始前保持静止。">Be stationary before the 5:40 activity window opens.</p></div></div><div class="step"><div class="time">7:15</div><div><h4 data-en="Exit and log result" data-zh="撤离并记录结果">Exit and log result</h4><p data-en="Exit by the same route and let the agent update future recommendations." data-zh="按原路线撤离，并让 Agent 更新后续推荐。">Exit by the same route and let the agent update future recommendations.</p></div></div></div><div class="grid"><div class="mini"><h4 data-en="Why this plan" data-zh="为什么推荐">Why this plan</h4><p data-en="Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset." data-zh="Big 8 过去 7 天在 17:30-19:30 出现 5 次。当前风向避开主通道。日落前后降温 6°F。">Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset.</p></div><div class="mini"><h4 data-en="Confidence" data-zh="置信度">Confidence</h4><p><b style="font-size:42px;color:var(--green)">72%</b><br><span data-en="Medium-high: strong pattern, limited by only 3 active cameras." data-zh="中高：规律明显，但受限于仅 3 台在线相机。">Medium-high: strong pattern, limited by only 3 active cameras.</span></p></div><div class="mini"><h4 data-en="Safety & compliance" data-zh="安全与合规">Safety & compliance</h4><p data-en="Always verify local seasons, permissions, legal shooting light, and safe backstop before acting on any recommendation." data-zh="执行任何建议前，请确认当地猎季、许可、合法射击时间和安全背景。">Always verify local seasons, permissions, legal shooting light, and safe backstop before acting on any recommendation.</p></div></div></div></div>
-    <div class="view" id="mapview"><div class="view-head"><div><h3 data-en="Field Map & AI Hot Zones" data-zh="猎场地图与 AI 热区">Field Map & AI Hot Zones</h3><p data-en="A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors." data-zh="桌面地图图层展示相机、动物事件、风向、推荐路线和预测活动走廊。">A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors.</p></div><button class="btn" data-en="Generate route" data-zh="生成路线">Generate route</button></div><div class="map" style="min-height:430px"><div class="map-title"><span class="kicker" data-en="SW wind 6 mph · next 12 hours" data-zh="西南风 6mph · 未来 12 小时">SW wind 6 mph · next 12 hours</span><h3 data-en="Recommended route avoids the main travel corridor." data-zh="推荐路线避开主活动通道。">Recommended route avoids the main travel corridor.</h3></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div></div></div>
+    <div class="view active" id="plan"><div class="view-head"><div><h3 data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</h3><p data-en="A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history." data-zh="基于打猎相机照片、风向、地形、气温和目标公鹿历史生成的战术计划。">A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history.</p></div><button class="btn" data-en="Set reminder" data-zh="设置提醒">Set reminder</button></div><div class="two"><div class="timeline"><div class="step"><div class="time">4:55</div><div><h4 data-en="Check wind" data-zh="检查风向">Check wind</h4><p data-en="Confirm the south creek approach remains downwind from the main travel corridor." data-zh="确认南侧溪谷路线仍处于主通道下风侧。">Confirm the south creek approach remains downwind from the main travel corridor.</p></div></div><div class="step"><div class="time">5:10</div><div><h4 data-en="Enter from south route" data-zh="从南侧路线进入">Enter from south route</h4><p data-en="Stay low near the creek line, avoid the ridge spine, and move slowly." data-zh="沿溪谷低姿态进入，避开山脊主线，慢速移动。">Stay low near the creek line, avoid the ridge spine, and move slowly.</p></div></div><div class="step"><div class="time">5:35</div><div><h4 data-en="Settle at observation point" data-zh="到达观察点">Settle at observation point</h4><p data-en="Be stationary before the 5:40 activity window opens." data-zh="在 17:40 活跃窗口开始前保持静止。">Be stationary before the 5:40 activity window opens.</p></div></div><div class="step"><div class="time">7:15</div><div><h4 data-en="Exit and log result" data-zh="撤离并记录结果">Exit and log result</h4><p data-en="Exit by the same route and let the agent update the next recommendation." data-zh="按原路线撤离，并让 Agent 更新下一次推荐。">Exit by the same route and let the agent update the next recommendation.</p></div></div></div><div class="grid"><div class="mini"><h4 data-en="Why this plan" data-zh="为什么推荐">Why this plan</h4><p data-en="Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset." data-zh="Big 8 过去 7 天在 17:30-19:30 出现 5 次。当前风向避开主通道。日落前后降温 6°F。">Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset.</p></div><div class="mini"><h4 data-en="Confidence" data-zh="置信度">Confidence</h4><p><b style="font-size:42px;color:var(--green)">72%</b><br><span data-en="Medium-high: strong pattern, limited by only 3 active cameras." data-zh="中高：规律明显，但受限于仅 3 台在线相机。">Medium-high: strong pattern, limited by only 3 active cameras.</span></p></div><div class="mini"><h4 data-en="Field checklist" data-zh="现场清单">Field checklist</h4><p data-en="Season, access, light window, wind line, route, and backstop reviewed before entry." data-zh="进入前复核猎季、通行、光照窗口、风线、路线和背景。">Season, access, light window, wind line, route, and backstop reviewed before entry.</p></div></div></div></div>
+    <div class="view" id="mapview"><div class="view-head"><div><h3 data-en="Field Map & AI Hot Zones" data-zh="猎场地图与 AI 热区">Field Map & AI Hot Zones</h3><p data-en="A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors." data-zh="桌面地图图层展示相机、动物事件、风向、推荐路线和预测活动走廊。">A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors.</p></div><button class="btn" data-en="Generate route" data-zh="生成路线">Generate route</button></div><div class="map map-large" style="min-height:430px"><div class="map-title"><span class="kicker" data-en="SW wind 6 mph · next 12 hours" data-zh="西南风 6mph · 未来 12 小时">SW wind 6 mph · next 12 hours</span><h3 data-en="Recommended route avoids the main travel corridor." data-zh="推荐路线避开主活动通道。">Recommended route avoids the main travel corridor.</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-5 80 C15 70 30 72 44 77 S74 84 105 67"/><path class="route-recommend" d="M9 88 C24 82 33 70 44 64 S64 55 77 41"/><path class="route-buck" d="M20 25 C30 35 39 45 50 49 S60 51 68 60"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-event e6"></div><div class="map-event e7"></div><div class="map-event target-event e8"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div><div class="map-legend"><span><i class="legend-ring"></i>Camera location</span><span><i class="legend-dot"></i>Recent event</span><span><i class="legend-hot"></i>Target hot zone</span><span><i class="legend-entry"></i>Buck route</span><span><i class="legend-route"></i>Recommended entry</span></div><div class="map-scale">500 ft</div></div></div>
     <div class="view" id="album"><div class="view-head"><div><h3 data-en="Smart Album" data-zh="智能图集">Smart Album</h3><p data-en="Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction." data-zh="照片被整理为证据，而不只是缩略图：物种、置信度、相机、时间、目标匹配和人工纠错。">Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction.</p></div><button class="btn" data-en="Confirm all high-confidence" data-zh="确认所有高置信度">Confirm all high-confidence</button></div><div class="album"><div class="photo"><div class="cap"><b data-en="Whitetail buck · Pixie" data-zh="白尾鹿公鹿 · Pixie">Whitetail buck · Pixie</b><small data-en="04:16 · 86% confidence · possible Big 8" data-zh="04:16 · 86% 置信度 · 疑似 Big 8">04:16 · 86% confidence · possible Big 8</small></div></div><div class="photo"><div class="cap"><b data-en="Mature buck · Ridge" data-zh="成熟公鹿 · Ridge">Mature buck · Ridge</b><small data-en="18:12 · target event · add to profile" data-zh="18:12 · 目标事件 · 加入档案">18:12 · target event · add to profile</small></div></div><div class="photo"><div class="cap"><b data-en="Doe group · Creek Cam" data-zh="母鹿群 · Creek Cam">Doe group · Creek Cam</b><small data-en="05:44 · movement corridor evidence" data-zh="05:44 · 活动走廊证据">05:44 · movement corridor evidence</small></div></div><div class="photo"><div class="cap"><b data-en="Human activity" data-zh="人类活动">Human activity</b><small data-en="22:31 · high priority alert" data-zh="22:31 · 高优先级提醒">22:31 · high priority alert</small></div></div><div class="photo"><div class="cap"><b data-en="Empty trigger" data-zh="空触发">Empty trigger</b><small data-en="Auto-filtered and archived" data-zh="自动过滤并归档">Auto-filtered and archived</small></div></div><div class="photo"><div class="cap"><b data-en="Turkey · non-target" data-zh="火鸡 · 非目标">Turkey · non-target</b><small data-en="Automatically downgraded" data-zh="自动降权">Automatically downgraded</small></div></div></div></div>
     <div class="view" id="profile"><div class="view-head"><div><h3 data-en="Target Animal Profile: Big 8" data-zh="目标动物档案：Big 8">Target Animal Profile: Big 8</h3><p data-en="The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence." data-zh="Agent 聚合同一只动物的照片，并建立证据、规律、区域和置信度档案。">The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence.</p></div><span class="tag">82% confidence</span></div><div class="profile"><div class="buck-photo"></div><div class="grid"><div class="stats" style="margin:0"><div class="stat"><small data-en="Last 7 days" data-zh="最近 7 天">Last 7 days</small><b>6</b><em data-en="appearances" data-zh="次出现">appearances</em></div><div class="stat"><small data-en="Peak times" data-zh="高频时间">Peak times</small><b>5:20 / 6:10</b><em data-en="AM / PM" data-zh="清晨 / 黄昏">AM / PM</em></div><div class="stat"><small data-en="Common zone" data-zh="常出现区域">Common zone</small><b data-en="North edge" data-zh="北坡林缘">North edge</b><em>68%</em></div><div class="stat"><small data-en="Trend" data-zh="趋势">Trend</small><b data-en="Rising" data-zh="Rising">Rising</b><em>+15%</em></div></div><div class="mini"><h4 data-en="Activity distribution" data-zh="活跃时间分布">Activity distribution</h4><div class="bars"><span style="--h:8"></span><span style="--h:10"></span><span style="--h:12"></span><span style="--h:16"></span><span style="--h:52"></span><span style="--h:87"></span><span style="--h:66"></span><span style="--h:41"></span><span style="--h:18"></span><span style="--h:13"></span><span style="--h:12"></span><span style="--h:20"></span><span style="--h:18"></span><span style="--h:22"></span><span style="--h:28"></span><span style="--h:31"></span><span style="--h:44"></span><span style="--h:70"></span><span style="--h:91"></span><span style="--h:65"></span><span style="--h:46"></span><span style="--h:22"></span><span style="--h:15"></span><span style="--h:11"></span></div></div></div></div></div>
     <div class="view" id="predict"><div class="view-head"><div><h3 data-en="Predictions & Pattern Analytics" data-zh="预测与规律分析">Predictions & Pattern Analytics</h3><p data-en="Compare today with your own historical captures and environmental conditions before deciding where to sit." data-zh="用自己的历史照片和环境条件对比今天，辅助决定蹲守位置。">Compare today with your own historical captures and environmental conditions before deciding where to sit.</p></div></div><div class="two"><div class="mini"><h4 data-en="Hourly movement forecast" data-zh="小时级活动预测">Hourly movement forecast</h4><div class="bars"><span style="--h:8"></span><span style="--h:12"></span><span style="--h:10"></span><span style="--h:14"></span><span style="--h:38"></span><span style="--h:63"></span><span style="--h:58"></span><span style="--h:31"></span><span style="--h:16"></span><span style="--h:12"></span><span style="--h:10"></span><span style="--h:13"></span><span style="--h:14"></span><span style="--h:18"></span><span style="--h:21"></span><span style="--h:28"></span><span style="--h:52"></span><span style="--h:84"></span><span style="--h:96"></span><span style="--h:67"></span><span style="--h:35"></span><span style="--h:20"></span><span style="--h:14"></span><span style="--h:10"></span></div></div><div class="grid"><div class="mini"><h4 data-en="Main drivers" data-zh="主要驱动因素">Main drivers</h4><p data-en="Wind direction, falling temperature, last-light movement, and three-day camera sequence near Pixie." data-zh="风向、降温、天黑前活动，以及 Pixie 附近连续三天相机记录。">Wind direction, falling temperature, last-light movement, and three-day camera sequence near Pixie.</p></div><div class="mini"><h4 data-en="Recommended camera move" data-zh="推荐移动相机">Recommended camera move</h4><p data-en="Move Ridge Cam 120 yards east to cover the suspected funnel between the creek and timber edge." data-zh="将 Ridge Cam 向东移动 120 码，覆盖溪谷与林缘之间的疑似收口点。">Move Ridge Cam 120 yards east to cover the suspected funnel between the creek and timber edge.</p></div></div></div></div>
@@ -37,13 +400,13 @@
   </div></section>
   <section id="events" class="card section"><h3 data-en="Trail Camera Event Stream" data-zh="打猎相机事件流">Trail Camera Event Stream</h3><table class="table"><thead><tr><th data-en="Time" data-zh="时间">Time</th><th data-en="Camera" data-zh="相机">Camera</th><th data-en="AI Classification" data-zh="AI 识别">AI Classification</th><th data-en="Confidence" data-zh="置信度">Confidence</th><th data-en="Agent Action" data-zh="Agent 动作">Agent Action</th></tr></thead><tbody><tr><td>04:16</td><td>Pixie</td><td data-en="Whitetail buck · possible Big 8" data-zh="白尾鹿公鹿 · 疑似 Big 8">Whitetail buck · possible Big 8</td><td>86%</td><td data-en="Added to target evidence" data-zh="加入目标证据">Added to target evidence</td></tr><tr><td>03:52</td><td>Pixie</td><td data-en="Raccoon · non-target" data-zh="浣熊 · 非目标">Raccoon · non-target</td><td>91%</td><td data-en="Auto downgraded" data-zh="自动降权">Auto downgraded</td></tr><tr><td>22:31</td><td>Ridge</td><td data-en="Human activity" data-zh="人类活动">Human activity</td><td>78%</td><td data-en="High-priority alert" data-zh="高优先级提醒">High-priority alert</td></tr></tbody></table></section>
   <section id="devices" class="card section"><h3 data-en="Device Operations" data-zh="设备运营">Device Operations</h3><div class="devices"><div class="device"><div><b>Pixie</b><small>SN: PX-00123</small></div><div><b>70%</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b data-en="Strong" data-zh="强">Strong</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>4</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Online" data-zh="在线">Online</b><small data-en="Status" data-zh="状态">Status</small></div><span class="tag" data-en="Keep monitoring" data-zh="继续监控">Keep monitoring</span></div><div class="device"><div><b>Creek Cam</b><small>SN: CC-00987</small></div><div><b style="color:var(--red)">18%</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b style="color:var(--amber)" data-en="Weak" data-zh="弱">Weak</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>2</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Online" data-zh="在线">Online</b><small data-en="Status" data-zh="状态">Status</small></div><span class="tag amber" data-en="Replace battery" data-zh="更换电池">Replace battery</span></div><div class="device"><div><b>Ridge</b><small>SN: RG-00456</small></div><div><b>--</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b>--</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>--</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Offline" data-zh="离线">Offline</b><small data-en="Last check 02:10" data-zh="最后检查 02:10">Last check 02:10</small></div><span class="tag amber" data-en="Check SIM/location" data-zh="检查 SIM/位置">Check SIM/location</span></div></div></section>
-  <section id="reports" class="card section intelligence"><div class="head"><div><h3 data-en="Industry Intelligence & Scouting Reports" data-zh="行业情报与侦察报告">Industry Intelligence & Scouting Reports</h3><p data-en="Use the Intelligence page for SEO, buyer guides, weekly movement briefs, gear analysis, and downloadable lead magnets." data-zh="行业情报页面用于 SEO、购买指南、每周活动简报、设备分析和可下载获客内容。">Use the Intelligence page for SEO, buyer guides, weekly movement briefs, gear analysis, and downloadable lead magnets.</p></div><a class="btn secondary" href="/insights" data-en="Open intelligence hub" data-zh="打开行业情报中心">Open intelligence hub</a></div><div class="report-grid"><article class="report-card"><div><span class="tag">Buyer Guide</span><h4 data-en="AI Trail Camera Buyer’s Guide" data-zh="AI 打猎相机购买指南">AI Trail Camera Buyer’s Guide</h4><p data-en="A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering." data-zh="围绕相机选择、流量套餐、电池续航、图像质量和 AI 照片过滤的实用框架。">A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering.</p></div><a href="/insights" class="tag">Read</a></article><article class="report-card"><div><span class="tag amber">Weekly Brief</span><h4 data-en="Whitetail Movement Intelligence" data-zh="白尾鹿活动情报简报">Whitetail Movement Intelligence</h4><p data-en="Weekly content format for camera activity, weather shifts, best windows, and target buck patterns." data-zh="用于相机活跃度、天气变化、最佳窗口和目标公鹿规律的每周内容模板。">Weekly content format for camera activity, weather shifts, best windows, and target buck patterns.</p></div><a href="/insights" class="tag">Open</a></article><article class="report-card"><div><span class="tag">Gear Radar</span><h4 data-en="Smart Hunting Gear Radar" data-zh="智能打猎设备雷达">Smart Hunting Gear Radar</h4><p data-en="Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows." data-zh="蜂窝相机、太阳能套件、野外传感器、智能喂食器、地图工具和 AI 工作流。">Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows.</p></div><a href="/insights" class="tag">Explore</a></article></div></section>
-  <section class="contact-cta"><div><h3 data-en="Need beta access, a product demo, or a partnership conversation?" data-zh="需要内测、产品演示或商务合作？">Need beta access, a product demo, or a partnership conversation?</h3><p data-en="The Contact page is the primary conversion point for hunters, outfitters, land managers, dealers, trail-camera brands, and media inquiries." data-zh="联系页面是猎人、向导、土地管理者、经销商、打猎相机品牌和媒体咨询的主要转化入口。">The Contact page is the primary conversion point for hunters, outfitters, land managers, dealers, trail-camera brands, and media inquiries.</p></div><a class="btn" href="/contact" data-en="Contact HuntAgent AI" data-zh="联系 HuntAgent AI">Contact HuntAgent AI</a></section>
-  <footer class="footer"><div class="footer-grid"><div><div class="foot-brand"><div class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></div><div><b>HuntAgent AI</b><span data-en="AI-powered hunting intelligence for trail-camera networks, land managers, outfitters, and serious hunters." data-zh="面向打猎相机网络、土地管理者、向导和专业猎人的 AI 猎场情报平台。">AI-powered hunting intelligence for trail-camera networks, land managers, outfitters, and serious hunters.</span></div></div></div><div><h4 data-en="Platform" data-zh="平台">Platform</h4><a href="#dashboard" data-en="Command Center" data-zh="指挥中心">Command Center</a><a href="#workspace" data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</a><a href="#devices" data-en="Device Operations" data-zh="设备运营">Device Operations</a></div><div><h4 data-en="Intelligence" data-zh="行业情报">Intelligence</h4><a href="/insights" data-en="Industry Briefs" data-zh="行业简报">Industry Briefs</a><a href="/insights" data-en="Buyer Guides" data-zh="购买指南">Buyer Guides</a><a href="/insights" data-en="Gear Radar" data-zh="设备雷达">Gear Radar</a></div><div><h4 data-en="Company" data-zh="公司">Company</h4><a href="/contact" data-en="Contact" data-zh="联系">Contact</a><a href="/contact" data-en="Beta Access" data-zh="内测申请">Beta Access</a><a href="/contact" data-en="Partnerships" data-zh="商务合作">Partnerships</a></div></div><div class="legal"><span data-en="© 2026 HuntAgent AI. Demo content and product preview." data-zh="© 2026 HuntAgent AI。演示内容与产品预览。">© 2026 HuntAgent AI. Demo content and product preview.</span><span data-en="Safety note: Always verify local hunting laws, seasons, permissions, legal shooting light, and safe field practices." data-zh="安全提示：请自行确认本地狩猎法规、猎季、土地许可、合法射击时间和安全户外操作。">Safety note: Always verify local hunting laws, seasons, permissions, legal shooting light, and safe field practices.</span></div></footer>
+  <section id="reports" class="card section intelligence"><div class="head"><div><h3 data-en="Industry News & Scouting Reports" data-zh="行业新闻与侦察报告">Industry News & Scouting Reports</h3><p data-en="Track hunting technology, trail-camera workflows, event windows, gear signals, and field-ready AI scouting ideas." data-zh="追踪打猎科技、相机工作流、行业活动窗口、装备信号和可用于实战的 AI 侦察思路。">Track hunting technology, trail-camera workflows, event windows, gear signals, and field-ready AI scouting ideas.</p></div><a class="btn secondary" href="/news" data-en="Open news hub" data-zh="打开新闻中心">Open news hub</a></div><div class="report-grid"><article class="report-card"><div><span class="tag">Buyer Guide</span><h4 data-en="AI Trail Camera Buyer’s Guide" data-zh="AI 打猎相机购买指南">AI Trail Camera Buyer’s Guide</h4><p data-en="A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering." data-zh="围绕相机选择、流量套餐、电池续航、图像质量和 AI 照片过滤的实用框架。">A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering.</p></div><a href="/insights" class="tag">Read</a></article><article class="report-card"><div><span class="tag amber">News Brief</span><h4 data-en="Hunting Industry Event Watch" data-zh="打猎行业活动观察">Hunting Industry Event Watch</h4><p data-en="Coverage format for trade events, product signals, conservation activity, and field-relevant announcements." data-zh="用于行业活动、产品信号、保育动态和实战相关公告的新闻简报格式。">Coverage format for trade events, product signals, conservation activity, and field-relevant announcements.</p></div><a href="/news" class="tag">Open</a></article><article class="report-card"><div><span class="tag">Gear Radar</span><h4 data-en="Smart Hunting Gear Radar" data-zh="智能打猎设备雷达">Smart Hunting Gear Radar</h4><p data-en="Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows." data-zh="蜂窝相机、太阳能套件、野外传感器、智能喂食器、地图工具和 AI 工作流。">Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows.</p></div><a href="/news" class="tag">Explore</a></article></div></section>
+  <section class="contact-cta"><div><h3 data-en="Want HuntAgent AI to analyze your hunting workflow?" data-zh="想让 HuntAgent AI 分析你的打猎工作流？">Want HuntAgent AI to analyze your hunting workflow?</h3><p data-en="Share your trail-camera setup, target species, hunting region, and the field decision you want the agent to help with." data-zh="告诉我们你的打猎相机配置、目标物种、所在地区，以及你希望智能体帮助判断的现场问题。">Share your trail-camera setup, target species, hunting region, and the field decision you want the agent to help with.</p></div><a class="btn" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></section>
+<footer class="footer"><div class="footer-grid"><div><div class="foot-brand"><div class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></div><div><b>HuntAgent AI</b><span data-en="AI-powered hunting intelligence for trail-camera networks and serious hunters." data-zh="面向打猎相机网络和专业猎人的 AI 猎场情报平台。">AI-powered hunting intelligence for trail-camera networks and serious hunters.</span></div></div></div><div><h4 data-en="Platform" data-zh="平台">Platform</h4><a href="#dashboard" data-en="Command Center" data-zh="指挥中心">Command Center</a><a href="#workspace" data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</a><a href="#devices" data-en="Device Operations" data-zh="设备运营">Device Operations</a></div><div><h4 data-en="Intelligence" data-zh="猎场情报">Intelligence</h4><a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a><a href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a><a href="/insights" data-en="Target Profiles" data-zh="目标档案">Target Profiles</a></div><div><h4 data-en="Contact" data-zh="联系">Contact</h4><a href="/contact" data-en="Request access" data-zh="申请访问">Request access</a><a href="/feedback" data-en="Feedback" data-zh="反馈">Feedback</a><a href="mailto:aicodeclaw@gmail.com">aicodeclaw@gmail.com</a></div></div><div class="legal"><span>© 2026 HuntAgent AI.</span></div></footer>
 </main>
 </div>
 <script>
-const $=s=>document.querySelectorAll(s);let lang='en';function setLang(l){lang=l;document.documentElement.lang=l==='zh'?'zh-CN':'en';$('[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en});document.getElementById('langBtn').textContent=l==='en'?'中文':'English'}document.getElementById('langBtn').onclick=()=>setLang(lang==='en'?'zh':'en');$('.tabs button').forEach(b=>b.onclick=()=>{$('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('.view').forEach(v=>v.classList.remove('active'));document.getElementById(b.dataset.view).classList.add('active')});
+const $=s=>document.querySelectorAll(s);const langBtn=document.getElementById('langBtn');let lang=localStorage.getItem('huntagent-lang')||'en';function setLang(l){lang=l;localStorage.setItem('huntagent-lang',l);document.documentElement.lang=l==='zh'?'zh-CN':'en';$('[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en});if(langBtn)langBtn.textContent=l==='en'?'中文':'English'}if(langBtn)langBtn.onclick=()=>setLang(lang==='en'?'zh':'en');setLang(lang);$('.tabs button').forEach(b=>b.onclick=()=>{$('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('.view').forEach(v=>v.classList.remove('active'));document.getElementById(b.dataset.view).classList.add('active')});
 </script>
 </body>
 </html>
