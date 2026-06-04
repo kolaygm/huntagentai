@@ -460,7 +460,7 @@
   height: 138px;
 }
 section[id] {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 128px;
 }
 .activity-heat {
   position: absolute;
@@ -987,6 +987,178 @@ section[id] {
 #plan.generated .generated-pulse {
   display: block;
 }
+.field-cases,
+.free-tools {
+  margin-top: 18px;
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.case-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.032));
+}
+.case-image {
+  position: relative;
+  min-height: 230px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(0deg, rgba(4, 7, 6, 0.74), rgba(4, 7, 6, 0.18)),
+    var(--buck) center / cover no-repeat;
+}
+.case-card:nth-child(2) .case-image {
+  background-image:
+    linear-gradient(0deg, rgba(4, 7, 6, 0.74), rgba(4, 7, 6, 0.18)),
+    var(--buck2);
+}
+.case-card:nth-child(3) .case-image {
+  background-image:
+    linear-gradient(0deg, rgba(4, 7, 6, 0.74), rgba(4, 7, 6, 0.2)),
+    var(--deer);
+}
+.case-image .btn {
+  align-self: flex-start;
+}
+.case-body {
+  padding: 17px;
+}
+.case-body h4 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.case-body p {
+  margin: 0;
+  color: #cbd5cd;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.case-proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.case-proof div {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.18);
+}
+.case-proof small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+.case-proof b {
+  display: block;
+  margin-top: 3px;
+  font-size: 17px;
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.033));
+}
+.tool-card h4 {
+  margin: 12px 0 7px;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+}
+.tool-card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.tool-form {
+  display: grid;
+  gap: 10px;
+}
+.tool-field {
+  display: grid;
+  gap: 6px;
+}
+.tool-field span {
+  color: #d9e3db;
+  font-size: 12px;
+  font-weight: 800;
+}
+.tool-field input,
+.tool-field select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 9px 11px;
+  color: #f6fbf3;
+  background: rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+.tool-field select option {
+  color: #111;
+}
+.tool-field input:focus,
+.tool-field select:focus {
+  border-color: rgba(130, 211, 109, 0.55);
+  box-shadow: 0 0 0 3px rgba(130, 211, 109, 0.12);
+}
+.tool-result {
+  margin-top: 14px;
+  border: 1px solid rgba(130, 211, 109, 0.22);
+  border-radius: 18px;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(130, 211, 109, 0.12), rgba(121, 167, 255, 0.06));
+}
+.tool-result strong {
+  display: block;
+  color: var(--green);
+  font-size: 34px;
+  letter-spacing: -0.05em;
+}
+.tool-result b {
+  display: block;
+  margin: 4px 0 5px;
+}
+.tool-result span,
+.tool-result p {
+  display: block;
+  margin: 0;
+  color: #d9e3db;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.tool-cta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid rgba(130, 211, 109, 0.2);
+  border-radius: 20px;
+  padding: 15px;
+  background: rgba(130, 211, 109, 0.07);
+}
+.tool-cta p {
+  margin: 0;
+  color: #d8e1da;
+  font-size: 13px;
+  line-height: 1.5;
+}
 @media (max-width: 1100px) {
   .device-grid,
   .care-grid,
@@ -994,7 +1166,9 @@ section[id] {
   .plan-execution,
   .prediction-hero,
   .model-grid,
-  .forecast-zones {
+  .forecast-zones,
+  .case-grid,
+  .tool-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1013,8 +1187,15 @@ section[id] {
   .prediction-hero,
   .model-grid,
   .forecast-zones,
-  .signal-grid {
+  .signal-grid,
+  .case-grid,
+  .tool-grid,
+  .case-proof {
     grid-template-columns: 1fr;
+  }
+  .tool-cta {
+    flex-direction: column;
+    align-items: stretch;
   }
   .plan-step {
     grid-template-columns: 1fr;
@@ -1041,6 +1222,8 @@ section[id] {
     <a class="site-brand" href="/" aria-label="HuntAgent AI home"><span class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></span><span><strong>HuntAgent AI</strong><span data-en="Hunter intelligence" data-zh="猎人情报">Hunter intelligence</span></span></a>
     <nav class="site-nav-links" aria-label="Primary">
       <a class="active" href="/" data-en="Command Center" data-zh="指挥中心">Command Center</a>
+      <a href="#field-cases" data-en="Field Cases" data-zh="实战案例">Field Cases</a>
+      <a href="#free-tools" data-en="Free Tools" data-zh="免费工具">Free Tools</a>
       <a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a>
       <a href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a>
       <a href="/contact" data-en="Request Access" data-zh="申请访问">Request Access</a>
@@ -1054,7 +1237,7 @@ section[id] {
   <div class="brand"><div class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></div><div><h1>HuntAgent AI</h1><small data-en="AI hunting intelligence platform" data-zh="专业级 AI 猎场情报平台">AI hunting intelligence platform</small></div></div>
   <div class="select"><small data-en="Workspace" data-zh="工作区">Workspace</small><strong><span data-en="North Ridge Property" data-zh="North Ridge 猎场">North Ridge Property</span><span>⌄</span></strong></div>
   <div class="nav-title" data-en="Platform" data-zh="平台功能">Platform</div>
-  <nav class="nav"><a class="active" href="#dashboard"><i>⌂</i><span data-en="Command Center" data-zh="指挥中心">Command Center</span></a><a href="#workspace"><i>✦</i><span data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</span></a><a href="#events"><i>▦</i><span data-en="Trail Events" data-zh="相机事件">Trail Events</span></a><a href="#devices"><i>▣</i><span data-en="Device Operations" data-zh="设备运营">Device Operations</span></a><a href="/insights"><i>◈</i><span data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</span></a><a href="/news"><i>⌁</i><span data-en="Industry News" data-zh="行业新闻">Industry News</span></a><a href="/contact"><i>↗</i><span data-en="Request Access" data-zh="申请访问">Request Access</span></a><a href="/feedback"><i>✎</i><span data-en="Feedback" data-zh="反馈">Feedback</span></a></nav>
+  <nav class="nav"><a class="active" href="#dashboard"><i>⌂</i><span data-en="Command Center" data-zh="指挥中心">Command Center</span></a><a href="#field-cases"><i>▧</i><span data-en="Field Cases" data-zh="实战案例">Field Cases</span></a><a href="#free-tools"><i>⌁</i><span data-en="Free Tools" data-zh="免费工具">Free Tools</span></a><a href="#workspace"><i>✦</i><span data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</span></a><a href="#events"><i>▦</i><span data-en="Trail Events" data-zh="相机事件">Trail Events</span></a><a href="#devices"><i>▣</i><span data-en="Device Operations" data-zh="设备运营">Device Operations</span></a><a href="/insights"><i>◈</i><span data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</span></a><a href="/news"><i>⌁</i><span data-en="Industry News" data-zh="行业新闻">Industry News</span></a><a href="/contact"><i>↗</i><span data-en="Request Access" data-zh="申请访问">Request Access</span></a><a href="/feedback"><i>✎</i><span data-en="Feedback" data-zh="反馈">Feedback</span></a></nav>
   <div class="agent-card"><h3 data-en="AI analysis in progress" data-zh="AI 正在分析">AI analysis in progress</h3><p data-en="3 cameras, 286 recent captures, weather, wind, sunrise, moon phase, target buck history, and device telemetry." data-zh="3 台相机、286 张近期照片、天气、风向、日出、月相、目标公鹿历史和设备状态。">3 cameras, 286 recent captures, weather, wind, sunrise, moon phase, target buck history, and device telemetry.</p><div class="progress"><span></span></div></div>
 </aside>
 <main class="main">
@@ -1065,6 +1248,8 @@ section[id] {
   </section>
   <section class="stats"><div class="stat"><small data-en="New events" data-zh="新事件">New events</small><b>24</b><em data-en="+31% vs yesterday" data-zh="较昨日 +31%">+31% vs yesterday</em></div><div class="stat"><small data-en="Target animal events" data-zh="目标动物事件">Target animal events</small><b>4</b><em data-en="2 high priority" data-zh="2 个高优先级">2 high priority</em></div><div class="stat"><small data-en="Empty triggers filtered" data-zh="空触发过滤">Empty triggers filtered</small><b>17</b><em data-en="AI auto archived" data-zh="AI 自动归档">AI auto archived</em></div><div class="stat"><small data-en="Device alerts" data-zh="设备预警">Device alerts</small><b>1</b><em data-en="Creek Cam battery" data-zh="Creek Cam 电池">Creek Cam battery</em></div></section>
   <section class="grid modules"><div class="module"><i>✦</i><div><h4 data-en="AI Agent Copilot" data-zh="AI 智能体助手">AI Agent Copilot</h4><p data-en="Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history." data-zh="用自然语言提问，让 Agent 查询相机、照片、天气、地图和历史数据。">Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history.</p></div></div><div class="module"><i>🧭</i><div><h4 data-en="Tonight's Plan" data-zh="今晚行动计划">Tonight's Plan</h4><p data-en="Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion." data-zh="生成时间窗口、进入路线、蹲守点、提醒和推荐证据。">Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion.</p></div></div><div class="module"><i>🗺</i><div><h4 data-en="Field Map & Hot Zones" data-zh="猎场地图与热区">Field Map & Hot Zones</h4><p data-en="See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions." data-zh="查看相机位置、近期事件、风向、预测活动走廊和 AI 路线建议。">See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions.</p></div></div><div class="module"><i>🦌</i><div><h4 data-en="Target Buck Profiles" data-zh="目标动物档案">Target Buck Profiles</h4><p data-en="Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence." data-zh="聚合同一只动物的照片，追踪频次、时间规律、区域和置信度。">Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence.</p></div></div><div class="module"><i>▦</i><div><h4 data-en="Smart Album" data-zh="智能图集">Smart Album</h4><p data-en="Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events." data-zh="识别物种、过滤空触发、检测人/车辆，并把照片变成结构化事件。">Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events.</p></div></div><div class="module"><i>▰</i><div><h4 data-en="Prediction Analytics" data-zh="预测分析">Prediction Analytics</h4><p data-en="Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends." data-zh="结合相机历史、天气变化、日出、月相和气压趋势预测小时级活动。">Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends.</p></div></div><div class="module"><i>🔧</i><div><h4 data-en="Device Operations" data-zh="设备运营">Device Operations</h4><p data-en="Translate battery, signal, storage, and SIM data into plain-language maintenance decisions." data-zh="把电池、信号、存储和 SIM 数据翻译成清晰的维护建议。">Translate battery, signal, storage, and SIM data into plain-language maintenance decisions.</p></div></div><div class="module"><i>☷</i><div><h4 data-en="Reports & Automation" data-zh="报告与自动化">Reports & Automation</h4><p data-en="Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows." data-zh="生成侦察报告、周报、目标提醒、团队记录和自动化工作流。">Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows.</p></div></div></section>
+  <section id="field-cases" class="card section field-cases"><div class="head"><div><span class="kicker" data-en="shareable field intelligence" data-zh="可转发猎场情报">shareable field intelligence</span><h3 data-en="Real hunting questions, AI-ready answers." data-zh="真实打猎问题，AI 直接给出答案。">Real hunting questions, AI-ready answers.</h3><p data-en="Each brief is built for the way hunters actually talk: a trail-camera capture, the field question, the AI readout, the evidence, and the next move." data-zh="每个简报都按猎人真实交流方式组织：打猎相机照片、现场问题、AI 判断、证据和下一步动作。">Each brief is built for the way hunters actually talk: a trail-camera capture, the field question, the AI readout, the evidence, and the next move.</p></div><a class="btn secondary" href="#free-tools" data-en="Try free tools" data-zh="试用免费工具">Try free tools</a></div><div class="case-grid"><article class="case-card"><div class="case-image"><span class="kicker" data-en="Target buck pattern" data-zh="目标公鹿规律">Target buck pattern</span><button class="btn minor secondary" type="button" data-copy-brief="buck" data-en="Copy field brief" data-zh="复制简报">Copy field brief</button></div><div class="case-body"><h4 data-en="Big 8 showed at Pixie before daylight. Should I hunt tonight?" data-zh="Big 8 天亮前出现在 Pixie，今晚该不该去？">Big 8 showed at Pixie before daylight. Should I hunt tonight?</h4><p data-en="HuntAgent AI links three evening captures, a temperature drop, and a wind-safe creek entry into one clear recommendation." data-zh="HuntAgent AI 将三次黄昏照片、降温和溪谷下风路线合并成一个清晰建议。">HuntAgent AI links three evening captures, a temperature drop, and a wind-safe creek entry into one clear recommendation.</p><div class="case-proof"><div><small data-en="Score" data-zh="评分">Score</small><b>78/100</b></div><div><small data-en="Window" data-zh="窗口">Window</small><b>5:40–7:10</b></div><div><small data-en="Confidence" data-zh="置信度">Confidence</small><b>82%</b></div></div></div></article><article class="case-card"><div class="case-image"><span class="kicker" data-en="Wind + route logic" data-zh="风向 + 路线逻辑">Wind + route logic</span><button class="btn minor secondary" type="button" data-copy-brief="route" data-en="Copy field brief" data-zh="复制简报">Copy field brief</button></div><div class="case-body"><h4 data-en="Can I reach the stand without burning the main trail?" data-zh="能不能不惊动主活动道进入蹲守点？">Can I reach the stand without burning the main trail?</h4><p data-en="The agent compares wind, water, food, bedding cover, and animal tracks before recommending a low creek approach." data-zh="Agent 对比风向、水源、食物地、卧床区和动物轨迹后，推荐低位溪谷进入路线。">The agent compares wind, water, food, bedding cover, and animal tracks before recommending a low creek approach.</p><div class="case-proof"><div><small data-en="Route" data-zh="路线">Route</small><b data-en="South creek" data-zh="南溪谷">South creek</b></div><div><small data-en="Risk" data-zh="风险">Risk</small><b data-en="Low scent" data-zh="低气味">Low scent</b></div><div><small data-en="Move" data-zh="动作">Move</small><b>17:10</b></div></div></div></article><article class="case-card"><div class="case-image"><span class="kicker" data-en="Camera steward" data-zh="相机管家">Camera steward</span><button class="btn minor secondary" type="button" data-copy-brief="camera" data-en="Copy field brief" data-zh="复制简报">Copy field brief</button></div><div class="case-body"><h4 data-en="Is Creek Cam missing deer or just wasting battery?" data-zh="Creek Cam 是漏拍鹿，还是只是在浪费电？">Is Creek Cam missing deer or just wasting battery?</h4><p data-en="HuntAgent AI turns weak signal, low battery, dirty lens, false triggers, and bad angle into a field-service checklist." data-zh="HuntAgent AI 把弱信号、低电量、镜头脏、误触发和角度偏差转成现场维护清单。">HuntAgent AI turns weak signal, low battery, dirty lens, false triggers, and bad angle into a field-service checklist.</p><div class="case-proof"><div><small data-en="Battery" data-zh="电量">Battery</small><b>18%</b></div><div><small data-en="False triggers" data-zh="误触发">False triggers</small><b>41%</b></div><div><small data-en="Action" data-zh="动作">Action</small><b data-en="Service" data-zh="维护">Service</b></div></div></div></article></div></section>
+  <section id="free-tools" class="card section free-tools"><div class="head"><div><span class="kicker" data-en="free hunter tools" data-zh="免费猎人工具">free hunter tools</span><h3 data-en="Get a useful AI read before you sign up." data-zh="注册前，先拿到一次有用的 AI 判断。">Get a useful AI read before you sign up.</h3><p data-en="These lightweight tools show the kind of decision support HuntAgent AI can provide once connected to real trail-camera history, maps, weather, and device telemetry." data-zh="这些轻量工具展示 HuntAgent AI 接入真实相机历史、地图、天气和设备状态后，可以提供什么样的决策支持。">These lightweight tools show the kind of decision support HuntAgent AI can provide once connected to real trail-camera history, maps, weather, and device telemetry.</p></div><a class="btn secondary" href="/contact" data-en="Use my own cameras" data-zh="接入我的相机">Use my own cameras</a></div><div class="tool-grid"><article class="tool-card"><span class="kicker" data-en="movement score" data-zh="活动指数">movement score</span><h4 data-en="AI Deer Movement Score" data-zh="AI 鹿群活动指数">AI Deer Movement Score</h4><p data-en="Estimate whether tonight is worth a serious sit using target events, wind, temperature shift, pressure, and last-light timing." data-zh="结合目标事件、风向、降温、气压和天黑前窗口，估算今晚是否值得认真蹲守。">Estimate whether tonight is worth a serious sit using target events, wind, temperature shift, pressure, and last-light timing.</p><div class="tool-form"><label class="tool-field"><span data-en="Target sightings in last 7 days" data-zh="过去 7 天目标出现次数">Target sightings in last 7 days</span><input type="number" min="0" max="12" value="5" data-tool-input data-move-sightings></label><label class="tool-field"><span data-en="Wind fit" data-zh="风向匹配">Wind fit</span><select data-tool-input data-move-wind><option value="good" data-en="Good for entry route" data-zh="有利于进入路线">Good for entry route</option><option value="variable" data-en="Variable but workable" data-zh="变化但可用">Variable but workable</option><option value="bad" data-en="Risky for scent control" data-zh="气味控制风险高">Risky for scent control</option></select></label><label class="tool-field"><span data-en="Temperature drop" data-zh="降温幅度">Temperature drop</span><input type="number" min="0" max="25" value="6" data-tool-input data-move-temp></label><label class="tool-field"><span data-en="Pressure / last light" data-zh="气压 / 天黑前窗口">Pressure / last light</span><select data-tool-input data-move-pressure><option value="stable" data-en="Stable pressure + last-light window" data-zh="气压稳定 + 天黑前窗口">Stable pressure + last-light window</option><option value="mixed" data-en="Mixed conditions" data-zh="条件一般">Mixed conditions</option><option value="poor" data-en="Poor timing" data-zh="时机不佳">Poor timing</option></select></label></div><div class="tool-result" id="movementResult"></div></article><article class="tool-card"><span class="kicker" data-en="camera health" data-zh="相机健康">camera health</span><h4 data-en="Trail Camera Health Check" data-zh="打猎相机健康检查">Trail Camera Health Check</h4><p data-en="Turn battery, cellular signal, false triggers, and lens condition into a clear maintenance priority." data-zh="把电量、蜂窝信号、误触发和镜头状态转化为明确维护优先级。">Turn battery, cellular signal, false triggers, and lens condition into a clear maintenance priority.</p><div class="tool-form"><label class="tool-field"><span data-en="Battery percent" data-zh="电量百分比">Battery percent</span><input type="number" min="0" max="100" value="18" data-tool-input data-health-battery></label><label class="tool-field"><span data-en="Signal strength dBm" data-zh="信号强度 dBm">Signal strength dBm</span><input type="number" min="-125" max="-65" value="-108" data-tool-input data-health-signal></label><label class="tool-field"><span data-en="False-trigger rate" data-zh="误触发比例">False-trigger rate</span><input type="number" min="0" max="100" value="41" data-tool-input data-health-false></label><label class="tool-field"><span data-en="Lens condition" data-zh="镜头状态">Lens condition</span><select data-tool-input data-health-lens><option value="dirty" data-en="Dust spots / low contrast" data-zh="有灰尘 / 对比度低">Dust spots / low contrast</option><option value="clear" data-en="Clear" data-zh="清晰">Clear</option><option value="unknown" data-en="Unknown" data-zh="未知">Unknown</option></select></label></div><div class="tool-result" id="healthResult"></div></article><article class="tool-card"><span class="kicker" data-en="target profile" data-zh="目标档案">target profile</span><h4 data-en="Target Buck Profile Generator" data-zh="目标公鹿档案生成器">Target Buck Profile Generator</h4><p data-en="Create a first-pass profile from recent sightings, repeated camera zones, and time-of-day pattern strength." data-zh="根据近期出现、重复相机区域和时间规律强度，生成目标动物的初步档案。">Create a first-pass profile from recent sightings, repeated camera zones, and time-of-day pattern strength.</p><div class="tool-form"><label class="tool-field"><span data-en="Target name" data-zh="目标名称">Target name</span><input value="Big 8" data-tool-input data-profile-name></label><label class="tool-field"><span data-en="Most recent camera" data-zh="最近出现相机">Most recent camera</span><select data-tool-input data-profile-camera><option value="Pixie">Pixie</option><option value="Creek Cam">Creek Cam</option><option value="Ridge">Ridge</option></select></label><label class="tool-field"><span data-en="Active days in last week" data-zh="过去一周活跃天数">Active days in last week</span><input type="number" min="0" max="7" value="5" data-tool-input data-profile-days></label><label class="tool-field"><span data-en="Strongest window" data-zh="最强时间窗">Strongest window</span><select data-tool-input data-profile-window><option value="evening" data-en="Evening / last light" data-zh="黄昏 / 天黑前">Evening / last light</option><option value="morning" data-en="Morning / first light" data-zh="清晨 / 天亮前后">Morning / first light</option><option value="night" data-en="Night only" data-zh="仅夜间">Night only</option></select></label></div><div class="tool-result" id="profileResult"></div></article></div><div class="tool-cta"><p data-en="The public tools use simplified inputs. The full agent becomes stronger when it can learn from your real camera history, field map, weather stream, and post-hunt notes." data-zh="公开工具使用简化输入。完整 Agent 接入你的真实相机历史、猎场地图、天气流和出猎复盘后，判断会更强。">The public tools use simplified inputs. The full agent becomes stronger when it can learn from your real camera history, field map, weather stream, and post-hunt notes.</p><a class="btn" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></div></section>
   <section id="workspace" class="workspace"><aside class="card tabs"><button class="active" data-view="plan" data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</button><button data-view="mapview" data-en="Field Map" data-zh="猎场地图">Field Map</button><button data-view="album" data-en="Smart Album" data-zh="智能图集">Smart Album</button><button data-view="profile" data-en="Target Profile" data-zh="目标档案">Target Profile</button><button data-view="predict" data-en="Predictions" data-zh="活动预测">Predictions</button><button data-view="chat" data-en="Agent Chat" data-zh="Agent 对话">Agent Chat</button></aside><div class="card">
     <div class="view active" id="plan">
       <div class="generated-pulse" data-en="HuntAgent AI generated a fresh field plan from 286 captures, 3 cameras, wind, temperature, topography, and Big 8 history." data-zh="HuntAgent AI 已基于 286 张照片、3 台相机、风向、气温、地形和 Big 8 历史记录生成最新行动计划。">HuntAgent AI generated a fresh field plan from 286 captures, 3 cameras, wind, temperature, topography, and Big 8 history.</div>
@@ -1120,7 +1305,21 @@ section[id] {
 const $ = s => document.querySelectorAll(s);
 const langBtn = document.getElementById('langBtn');
 const workspace = document.getElementById('workspace');
-let lang = localStorage.getItem('huntagent-lang') || 'en';
+function readStoredLang() {
+  try {
+    return localStorage.getItem('huntagent-lang') || 'en';
+  } catch {
+    return 'en';
+  }
+}
+function writeStoredLang(value) {
+  try {
+    localStorage.setItem('huntagent-lang', value);
+  } catch {
+    // Some local file previews block storage; language switching should still work for the current page.
+  }
+}
+let lang = readStoredLang();
 const fieldLayers = [
   { cls: 'map-boundary' },
   { cls: 'map-feature water feature-water', en: 'Water', zh: '水源' },
@@ -1172,12 +1371,13 @@ function enhanceMaps() {
 }
 function setLang(l) {
   lang = l;
-  localStorage.setItem('huntagent-lang', l);
+  writeStoredLang(l);
   document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
   $('[data-en]').forEach(el => {
     el.textContent = el.dataset[l] || el.dataset.en;
   });
   if (langBtn) langBtn.textContent = l === 'en' ? '中文' : 'English';
+  refreshToolOutputs();
 }
 function showView(viewId, options = {}) {
   $('.tabs button').forEach(x => x.classList.toggle('active', x.dataset.view === viewId));
@@ -1186,12 +1386,120 @@ function showView(viewId, options = {}) {
   if (viewId === 'plan' && options.generated) plan.classList.add('generated');
   if (workspace && options.scroll) workspace.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
+const fieldBriefs = {
+  buck: {
+    en: 'HuntAgent AI field brief: Big 8 has appeared near Pixie in the last-light pattern. Score 78/100. Best move: enter low from the south creek line and sit North Ridge from 5:40-7:10 PM.',
+    zh: 'HuntAgent AI 猎场简报：Big 8 已进入 Pixie 附近的黄昏活动规律。评分 78/100。建议动作：从南侧溪谷低位进入，17:40-19:10 蹲守 North Ridge。'
+  },
+  route: {
+    en: 'HuntAgent AI route brief: South creek entry keeps scent off the main travel corridor. Avoid the ridge crossing, stay low, and settle before the last-light window starts.',
+    zh: 'HuntAgent AI 路线简报：南侧溪谷进入可避开主活动道气味线。不要横穿山脊，低位进入，并在天黑前活跃窗口开始前就位。'
+  },
+  camera: {
+    en: 'HuntAgent AI camera brief: Creek Cam needs field service. Battery 18%, signal -108 dBm, false triggers 41%, lens dust detected. Replace battery, wipe lens, rotate north, and trim foreground grass.',
+    zh: 'HuntAgent AI 相机简报：Creek Cam 需要现场维护。电量 18%，信号 -108 dBm，误触发 41%，检测到镜头灰尘。建议换电池、擦镜头、向北旋转并清理前景杂草。'
+  }
+};
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+function readNumber(selector, fallback) {
+  const value = Number(document.querySelector(selector)?.value);
+  return Number.isFinite(value) ? value : fallback;
+}
+function readValue(selector, fallback) {
+  return document.querySelector(selector)?.value || fallback;
+}
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+}
+function renderMovementScore() {
+  const output = document.getElementById('movementResult');
+  if (!output) return;
+  const sightings = clamp(readNumber('[data-move-sightings]', 0), 0, 12);
+  const tempDrop = clamp(readNumber('[data-move-temp]', 0), 0, 25);
+  const wind = readValue('[data-move-wind]', 'good');
+  const pressure = readValue('[data-move-pressure]', 'stable');
+  const windScore = { good: 24, variable: 12, bad: -4 }[wind] || 0;
+  const pressureScore = { stable: 18, mixed: 8, poor: -6 }[pressure] || 0;
+  const score = clamp(Math.round(30 + sightings * 4.5 + tempDrop * 1.4 + windScore + pressureScore), 18, 96);
+  output.innerHTML = lang === 'zh'
+    ? `<strong>${score}/100</strong><b>${score >= 76 ? '值得认真出猎' : score >= 58 ? '可以出猎，但要控制风险' : '更适合侦察和补相机'}</b><span>${score >= 76 ? '建议在 17:40 前进入 North Ridge，保留 Pixie 提醒，并避免穿越主活动道。' : score >= 58 ? '建议选择更保守的下风路线，并把相机提醒作为触发条件。' : '建议先补地图证据、检查风向和目标规律，今晚不要重仓压一个点位。'}</span>`
+    : `<strong>${score}/100</strong><b>${score >= 76 ? 'Worth a serious sit' : score >= 58 ? 'Huntable with controls' : 'Scout-first conditions'}</b><span>${score >= 76 ? 'Enter North Ridge before 5:40 PM, keep Pixie alerts armed, and avoid crossing the main travel lane.' : score >= 58 ? 'Use a conservative downwind route and let camera alerts trigger the final move.' : 'Add evidence, verify wind, and avoid overcommitting to one stand tonight.'}</span>`;
+}
+function renderCameraHealth() {
+  const output = document.getElementById('healthResult');
+  if (!output) return;
+  const battery = clamp(readNumber('[data-health-battery]', 0), 0, 100);
+  const signal = clamp(readNumber('[data-health-signal]', -110), -125, -65);
+  const falseRate = clamp(readNumber('[data-health-false]', 0), 0, 100);
+  const lens = readValue('[data-health-lens]', 'unknown');
+  const signalPoints = signal >= -85 ? 25 : signal >= -100 ? 16 : signal >= -112 ? 7 : 2;
+  const lensPoints = { clear: 20, unknown: 11, dirty: 5 }[lens] || 10;
+  const score = clamp(Math.round(battery * 0.35 + signalPoints + Math.max(0, 20 - falseRate * 0.28) + lensPoints), 8, 98);
+  output.innerHTML = lang === 'zh'
+    ? `<strong>${score}/100</strong><b>${score < 62 ? '需要现场维护' : score < 78 ? '可用，但需要观察' : '状态健康'}</b><span>${score < 62 ? '优先换电池、擦镜头、改善信号位置，并降低误触发来源。' : score < 78 ? '继续监控上传失败和误触发，必要时调整朝向或灵敏度。' : '保持当前点位，等待更多目标事件增强模型。'}</span>`
+    : `<strong>${score}/100</strong><b>${score < 62 ? 'Field service needed' : score < 78 ? 'Usable, watch closely' : 'Healthy camera asset'}</b><span>${score < 62 ? 'Replace battery, clean the lens, improve signal placement, and reduce false-trigger sources.' : score < 78 ? 'Watch failed uploads and false triggers; adjust facing or sensitivity if the trend continues.' : 'Keep the camera in place and let more target events strengthen the model.'}</span>`;
+}
+function renderTargetProfile() {
+  const output = document.getElementById('profileResult');
+  if (!output) return;
+  const name = escapeHtml(readValue('[data-profile-name]', 'Big 8'));
+  const camera = escapeHtml(readValue('[data-profile-camera]', 'Pixie'));
+  const days = clamp(readNumber('[data-profile-days]', 0), 0, 7);
+  const windowType = readValue('[data-profile-window]', 'evening');
+  const confidence = clamp(Math.round(45 + days * 6 + (windowType === 'evening' ? 9 : windowType === 'morning' ? 6 : 1)), 38, 94);
+  const windowText = {
+    evening: { en: 'last-light pattern', zh: '黄昏活动规律' },
+    morning: { en: 'first-light pattern', zh: '清晨活动规律' },
+    night: { en: 'mostly nocturnal pattern', zh: '偏夜间活动规律' }
+  }[windowType];
+  output.innerHTML = lang === 'zh'
+    ? `<strong>${confidence}%</strong><b>${name} · ${windowText.zh}</b><span>最近核心证据来自 ${camera}。建议建立目标档案，持续追踪出现时间、相机区域、风向和下次行动结果。</span>`
+    : `<strong>${confidence}%</strong><b>${name} · ${windowText.en}</b><span>Most recent core evidence is from ${camera}. Build a target profile and keep tracking time, camera zone, wind, and the next hunt result.</span>`;
+}
+function refreshToolOutputs() {
+  renderMovementScore();
+  renderCameraHealth();
+  renderTargetProfile();
+}
+function fallbackCopy(text) {
+  const area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand('copy');
+  area.remove();
+}
+async function copyFieldBrief(key, button) {
+  const text = fieldBriefs[key]?.[lang] || fieldBriefs[key]?.en;
+  if (!text) return;
+  try {
+    if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(text);
+    else fallbackCopy(text);
+  } catch {
+    fallbackCopy(text);
+  }
+  const original = button.textContent;
+  button.textContent = lang === 'zh' ? '已复制' : 'Copied';
+  window.setTimeout(() => { button.textContent = original; }, 1600);
+}
 if (langBtn) langBtn.onclick = () => setLang(lang === 'en' ? 'zh' : 'en');
 enhanceMaps();
 setLang(lang);
 $('.tabs button').forEach(b => b.onclick = () => showView(b.dataset.view));
 document.getElementById('generatePlanBtn')?.addEventListener('click', () => showView('plan', { generated: true, scroll: true }));
 document.getElementById('viewEvidenceBtn')?.addEventListener('click', () => showView('predict', { scroll: true }));
+document.querySelectorAll('[data-tool-input]').forEach(input => {
+  input.addEventListener('input', refreshToolOutputs);
+  input.addEventListener('change', refreshToolOutputs);
+});
+document.querySelectorAll('[data-copy-brief]').forEach(button => {
+  button.addEventListener('click', () => copyFieldBrief(button.dataset.copyBrief, button));
+});
 </script>
 </body>
 </html>
