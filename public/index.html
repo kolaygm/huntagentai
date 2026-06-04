@@ -77,8 +77,11 @@
   min-height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 22px;
+}
+.site-nav .site-brand {
+  display: none;
 }
 .site-brand {
   display: inline-flex;
@@ -105,6 +108,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
+  margin-right: auto;
   color: #d7ded8;
   font-size: 14px;
   letter-spacing: 0;
@@ -296,6 +300,9 @@
   align-items: center;
   gap: 8px;
 }
+.map-legend em {
+  font-style: normal;
+}
 .legend-dot,
 .legend-ring,
 .legend-hot,
@@ -330,6 +337,89 @@
 .legend-entry {
   border-top: 2px dashed #efab43;
 }
+.legend-water {
+  background: #79a7ff;
+  border-radius: 3px;
+}
+.legend-food {
+  background: #c3ec84;
+  border-radius: 3px;
+}
+.legend-bedding {
+  background: rgba(147, 128, 255, 0.8);
+  border-radius: 3px;
+}
+.map-feature {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 5px 7px;
+  color: #fff;
+  background: rgba(4, 7, 6, 0.74);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 1px 6px #000;
+}
+.map-feature:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+.map-feature.water:before { background: #79a7ff; }
+.map-feature.food:before { background: #c3ec84; }
+.map-feature.supply:before { background: #f3d48a; }
+.map-feature.bedding:before { background: #9380ff; }
+.map-feature.stand:before {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: rgba(130, 211, 109, 0.3);
+}
+.map-feature.scrape:before {
+  border-radius: 50%;
+  background: #e5a642;
+}
+.feature-water { left: 13%; top: 73%; }
+.feature-food { left: 72%; top: 26%; }
+.feature-supply { left: 7%; top: 50%; }
+.feature-bedding { left: 46%; top: 22%; }
+.feature-stand { left: 62%; top: 58%; }
+.feature-scrape { left: 39%; top: 47%; }
+.map-large .feature-water { left: 12%; top: 72%; }
+.map-large .feature-food { left: 73%; top: 24%; }
+.map-large .feature-supply { left: 6%; top: 52%; }
+.map-large .feature-bedding { left: 45%; top: 20%; }
+.map-large .feature-stand { left: 63%; top: 58%; }
+.map-large .feature-scrape { left: 39%; top: 46%; }
+.track-dot {
+  position: absolute;
+  z-index: 3;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f5b13f;
+  box-shadow: 0 0 12px rgba(245, 177, 63, 0.7);
+}
+.track-dot.t1 { left: 28%; top: 42%; }
+.track-dot.t2 { left: 36%; top: 48%; }
+.track-dot.t3 { left: 48%; top: 51%; }
+.track-dot.t4 { left: 57%; top: 55%; }
+.track-dot.t5 { left: 66%; top: 62%; }
+.map-boundary {
+  position: absolute;
+  inset: 8%;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 28px 38px 26px 42px;
+  box-shadow: inset 0 0 0 1px rgba(130, 211, 109, 0.16);
+  pointer-events: none;
+}
 .map-scale {
   position: absolute;
   right: 18px;
@@ -348,6 +438,15 @@
 .map:not(.map-large) .map-legend,
 .map:not(.map-large) .map-scale {
   display: none;
+}
+.map:not(.map-large) .feature-supply,
+.map:not(.map-large) .feature-scrape,
+.map:not(.map-large) .feature-bedding {
+  display: none;
+}
+.map:not(.map-large) .map-feature {
+  padding: 4px 6px;
+  font-size: 10px;
 }
 .map-large .map-title {
   max-width: 68%;
@@ -985,7 +1084,7 @@ section[id] {
         </div>
       </div>
     </div>
-    <div class="view" id="mapview"><div class="view-head"><div><h3 data-en="Field Map & AI Hot Zones" data-zh="猎场地图与 AI 热区">Field Map & AI Hot Zones</h3><p data-en="A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors." data-zh="桌面地图图层展示相机、动物事件、风向、推荐路线和预测活动走廊。">A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors.</p></div><button class="btn" data-en="Generate route" data-zh="生成路线">Generate route</button></div><div class="map map-large" style="min-height:430px"><div class="map-title"><span class="kicker" data-en="SW wind 6 mph · next 12 hours" data-zh="西南风 6mph · 未来 12 小时">SW wind 6 mph · next 12 hours</span><h3 data-en="Recommended route avoids the main travel corridor." data-zh="推荐路线避开主活动通道。">Recommended route avoids the main travel corridor.</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-5 80 C15 70 30 72 44 77 S74 84 105 67"/><path class="route-recommend" d="M9 88 C24 82 33 70 44 64 S64 55 77 41"/><path class="route-buck" d="M20 25 C30 35 39 45 50 49 S60 51 68 60"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-event e6"></div><div class="map-event e7"></div><div class="map-event target-event e8"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div><div class="map-legend"><span><i class="legend-ring"></i>Camera location</span><span><i class="legend-dot"></i>Recent event</span><span><i class="legend-hot"></i>Target hot zone</span><span><i class="legend-entry"></i>Buck route</span><span><i class="legend-route"></i>Recommended entry</span></div><div class="map-scale">500 ft</div></div></div>
+    <div class="view" id="mapview"><div class="view-head"><div><h3 data-en="Field Map & AI Hot Zones" data-zh="猎场地图与 AI 热区">Field Map & AI Hot Zones</h3><p data-en="A hunting map layer for cameras, water, food plots, bedding cover, supply points, animal tracks, wind, suggested routes, and predicted movement corridors." data-zh="猎场地图图层展示相机、水源、食物地、卧床区、补给点、动物轨迹、风向、推荐路线和预测活动走廊。">A hunting map layer for cameras, water, food plots, bedding cover, supply points, animal tracks, wind, suggested routes, and predicted movement corridors.</p></div><button class="btn" data-en="Generate route" data-zh="生成路线">Generate route</button></div><div class="map map-large" style="min-height:430px"><div class="map-title"><span class="kicker" data-en="SW wind 6 mph · next 12 hours" data-zh="西南风 6mph · 未来 12 小时">SW wind 6 mph · next 12 hours</span><h3 data-en="Route threads between water, food, bedding cover, and the main trail." data-zh="路线穿过水源、食物地、卧床区与主活动道之间。">Route threads between water, food, bedding cover, and the main trail.</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-5 80 C15 70 30 72 44 77 S74 84 105 67"/><path class="route-recommend" d="M9 88 C24 82 33 70 44 64 S64 55 77 41"/><path class="route-buck" d="M20 25 C30 35 39 45 50 49 S60 51 68 60"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-event e6"></div><div class="map-event e7"></div><div class="map-event target-event e8"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">AI</div><div class="map-legend"><span><i class="legend-ring"></i>Camera location</span><span><i class="legend-dot"></i>Recent event</span><span><i class="legend-hot"></i>Target hot zone</span><span><i class="legend-entry"></i>Buck route</span><span><i class="legend-route"></i>Recommended entry</span></div><div class="map-scale">500 ft</div></div></div>
     <div class="view" id="album"><div class="view-head"><div><h3 data-en="Smart Album" data-zh="智能图集">Smart Album</h3><p data-en="Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction." data-zh="照片被整理为证据，而不只是缩略图：物种、置信度、相机、时间、目标匹配和人工纠错。">Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction.</p></div><button class="btn" data-en="Confirm all high-confidence" data-zh="确认所有高置信度">Confirm all high-confidence</button></div><div class="album"><div class="photo"><div class="cap"><b data-en="Whitetail buck · Pixie" data-zh="白尾鹿公鹿 · Pixie">Whitetail buck · Pixie</b><small data-en="04:16 · 86% confidence · possible Big 8" data-zh="04:16 · 86% 置信度 · 疑似 Big 8">04:16 · 86% confidence · possible Big 8</small></div></div><div class="photo"><div class="cap"><b data-en="Mature buck · Ridge" data-zh="成熟公鹿 · Ridge">Mature buck · Ridge</b><small data-en="18:12 · target event · add to profile" data-zh="18:12 · 目标事件 · 加入档案">18:12 · target event · add to profile</small></div></div><div class="photo"><div class="cap"><b data-en="Doe group · Creek Cam" data-zh="母鹿群 · Creek Cam">Doe group · Creek Cam</b><small data-en="05:44 · movement corridor evidence" data-zh="05:44 · 活动走廊证据">05:44 · movement corridor evidence</small></div></div><div class="photo"><div class="cap"><b data-en="Human activity" data-zh="人类活动">Human activity</b><small data-en="22:31 · high priority alert" data-zh="22:31 · 高优先级提醒">22:31 · high priority alert</small></div></div><div class="photo"><div class="cap"><b data-en="Empty trigger" data-zh="空触发">Empty trigger</b><small data-en="Auto-filtered and archived" data-zh="自动过滤并归档">Auto-filtered and archived</small></div></div><div class="photo"><div class="cap"><b data-en="Turkey · non-target" data-zh="火鸡 · 非目标">Turkey · non-target</b><small data-en="Automatically downgraded" data-zh="自动降权">Automatically downgraded</small></div></div></div></div>
     <div class="view" id="profile"><div class="view-head"><div><h3 data-en="Target Animal Profile: Big 8" data-zh="目标动物档案：Big 8">Target Animal Profile: Big 8</h3><p data-en="The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence." data-zh="Agent 聚合同一只动物的照片，并建立证据、规律、区域和置信度档案。">The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence.</p></div><span class="tag">82% confidence</span></div><div class="profile"><div class="buck-photo"></div><div class="grid"><div class="stats" style="margin:0"><div class="stat"><small data-en="Last 7 days" data-zh="最近 7 天">Last 7 days</small><b>6</b><em data-en="appearances" data-zh="次出现">appearances</em></div><div class="stat"><small data-en="Peak times" data-zh="高频时间">Peak times</small><b>5:20 / 6:10</b><em data-en="AM / PM" data-zh="清晨 / 黄昏">AM / PM</em></div><div class="stat"><small data-en="Common zone" data-zh="常出现区域">Common zone</small><b data-en="North edge" data-zh="北坡林缘">North edge</b><em>68%</em></div><div class="stat"><small data-en="Trend" data-zh="趋势">Trend</small><b data-en="Rising" data-zh="Rising">Rising</b><em>+15%</em></div></div><div class="mini"><h4 data-en="Activity distribution" data-zh="活跃时间分布">Activity distribution</h4><div class="bars"><span style="--h:8"></span><span style="--h:10"></span><span style="--h:12"></span><span style="--h:16"></span><span style="--h:52"></span><span style="--h:87"></span><span style="--h:66"></span><span style="--h:41"></span><span style="--h:18"></span><span style="--h:13"></span><span style="--h:12"></span><span style="--h:20"></span><span style="--h:18"></span><span style="--h:22"></span><span style="--h:28"></span><span style="--h:31"></span><span style="--h:44"></span><span style="--h:70"></span><span style="--h:91"></span><span style="--h:65"></span><span style="--h:46"></span><span style="--h:22"></span><span style="--h:15"></span><span style="--h:11"></span></div></div></div></div></div>
     <div class="view" id="predict">
@@ -1022,6 +1121,55 @@ const $ = s => document.querySelectorAll(s);
 const langBtn = document.getElementById('langBtn');
 const workspace = document.getElementById('workspace');
 let lang = localStorage.getItem('huntagent-lang') || 'en';
+const fieldLayers = [
+  { cls: 'map-boundary' },
+  { cls: 'map-feature water feature-water', en: 'Water', zh: '水源' },
+  { cls: 'map-feature food feature-food', en: 'Food plot', zh: '食物地' },
+  { cls: 'map-feature supply feature-supply', en: 'Supply / parking', zh: '补给 / 停车' },
+  { cls: 'map-feature bedding feature-bedding', en: 'Bedding cover', zh: '卧床区' },
+  { cls: 'map-feature stand feature-stand', en: 'Stand', zh: '树站' },
+  { cls: 'map-feature scrape feature-scrape', en: 'Scrape line', zh: '擦痕线' },
+  { cls: 'track-dot t1' },
+  { cls: 'track-dot t2' },
+  { cls: 'track-dot t3' },
+  { cls: 'track-dot t4' },
+  { cls: 'track-dot t5' }
+];
+const fieldLegend = [
+  { cls: 'legend-water', en: 'Water source', zh: '水源' },
+  { cls: 'legend-food', en: 'Food plot', zh: '食物地' },
+  { cls: 'legend-bedding', en: 'Bedding cover', zh: '卧床区' }
+];
+function enhanceMaps() {
+  document.querySelectorAll('.map').forEach(map => {
+    if (map.dataset.fieldLayers === 'ready') return;
+    fieldLayers.forEach(layer => {
+      const el = document.createElement('div');
+      el.className = layer.cls;
+      if (layer.en) {
+        el.dataset.en = layer.en;
+        el.dataset.zh = layer.zh;
+        el.textContent = layer.en;
+      }
+      map.appendChild(el);
+    });
+    const legend = map.querySelector('.map-legend');
+    if (legend) {
+      fieldLegend.forEach(item => {
+        const row = document.createElement('span');
+        const icon = document.createElement('i');
+        icon.className = item.cls;
+        const label = document.createElement('em');
+        label.dataset.en = item.en;
+        label.dataset.zh = item.zh;
+        label.textContent = item.en;
+        row.append(icon, label);
+        legend.appendChild(row);
+      });
+    }
+    map.dataset.fieldLayers = 'ready';
+  });
+}
 function setLang(l) {
   lang = l;
   localStorage.setItem('huntagent-lang', l);
@@ -1039,6 +1187,7 @@ function showView(viewId, options = {}) {
   if (workspace && options.scroll) workspace.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 if (langBtn) langBtn.onclick = () => setLang(lang === 'en' ? 'zh' : 'en');
+enhanceMaps();
 setLang(lang);
 $('.tabs button').forEach(b => b.onclick = () => showView(b.dataset.view));
 document.getElementById('generatePlanBtn')?.addEventListener('click', () => showView('plan', { generated: true, scroll: true }));
