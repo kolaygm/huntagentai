@@ -176,6 +176,8 @@
   background:
     radial-gradient(circle at 44% 53%, rgba(229, 166, 66, 0.58), rgba(229, 166, 66, 0.12) 13%, transparent 25%),
     radial-gradient(circle at 57% 44%, rgba(130, 211, 109, 0.22), transparent 23%),
+    radial-gradient(circle at 31% 67%, rgba(130, 211, 109, 0.22), transparent 21%),
+    radial-gradient(circle at 76% 54%, rgba(229, 166, 66, 0.24), transparent 18%),
     radial-gradient(circle at 72% 62%, rgba(130, 211, 109, 0.18), transparent 18%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent) !important;
 }
@@ -358,6 +360,241 @@
   width: 138px;
   height: 138px;
 }
+section[id] {
+  scroll-margin-top: 96px;
+}
+.activity-heat {
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.heat-primary {
+  left: 42%;
+  top: 43%;
+  width: 24%;
+  height: 34%;
+  background: radial-gradient(circle, rgba(229, 166, 66, 0.66), rgba(229, 166, 66, 0.18) 48%, transparent 72%);
+}
+.heat-secondary {
+  left: 55%;
+  top: 30%;
+  width: 25%;
+  height: 26%;
+  background: radial-gradient(circle, rgba(130, 211, 109, 0.48), rgba(130, 211, 109, 0.14) 50%, transparent 74%);
+}
+.heat-tertiary {
+  left: 24%;
+  top: 53%;
+  width: 22%;
+  height: 24%;
+  background: radial-gradient(circle, rgba(130, 211, 109, 0.36), rgba(130, 211, 109, 0.12) 48%, transparent 72%);
+}
+.map-large .heat-primary {
+  left: 38%;
+  top: 38%;
+  width: 30%;
+  height: 42%;
+}
+.map-large .heat-secondary {
+  left: 58%;
+  top: 26%;
+  width: 27%;
+  height: 28%;
+}
+.map-large .heat-tertiary {
+  left: 18%;
+  top: 50%;
+  width: 26%;
+  height: 30%;
+}
+.device-command {
+  display: grid;
+  gap: 18px;
+}
+.device-command-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+.device-command-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 820px;
+}
+.steward-score {
+  min-width: 190px;
+  border: 1px solid rgba(130, 211, 109, 0.28);
+  border-radius: 20px;
+  padding: 15px;
+  background: rgba(130, 211, 109, 0.08);
+}
+.steward-score small {
+  color: var(--muted);
+}
+.steward-score b {
+  display: block;
+  margin-top: 5px;
+  color: var(--green);
+  font-size: 34px;
+  letter-spacing: -0.05em;
+}
+.steward-score span {
+  display: block;
+  margin-top: 3px;
+  color: #d8e1da;
+  font-size: 12px;
+}
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.device-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 17px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.032));
+}
+.device-card.warn {
+  border-color: rgba(229, 166, 66, 0.34);
+  background: linear-gradient(180deg, rgba(229, 166, 66, 0.09), rgba(255, 255, 255, 0.032));
+}
+.device-card.offline {
+  border-color: rgba(255, 112, 99, 0.28);
+  background: linear-gradient(180deg, rgba(255, 112, 99, 0.08), rgba(255, 255, 255, 0.028));
+}
+.device-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.device-card h4 {
+  margin: 0;
+  font-size: 18px;
+}
+.device-card small {
+  color: var(--muted);
+}
+.health {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(130, 211, 109, 0.28);
+  color: #d9ffd4;
+  background: rgba(130, 211, 109, 0.1);
+  font-weight: 900;
+}
+.health.warn {
+  border-color: rgba(229, 166, 66, 0.34);
+  color: #ffd997;
+  background: rgba(229, 166, 66, 0.12);
+}
+.health.bad {
+  border-color: rgba(255, 112, 99, 0.32);
+  color: #ffd3cd;
+  background: rgba(255, 112, 99, 0.12);
+}
+.meter {
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin: 10px 0 14px;
+}
+.meter span {
+  display: block;
+  height: 100%;
+  width: var(--v);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), #c3ec84);
+}
+.warn .meter span {
+  background: linear-gradient(90deg, var(--amber), #f2c879);
+}
+.offline .meter span {
+  background: linear-gradient(90deg, var(--red), #f0a092);
+}
+.device-signals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.device-signals div {
+  min-height: 72px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.16);
+}
+.device-signals b {
+  display: block;
+  margin-top: 3px;
+  font-size: 17px;
+}
+.device-task {
+  margin-top: 14px;
+  border: 1px solid rgba(130, 211, 109, 0.18);
+  border-radius: 16px;
+  padding: 12px;
+  color: #dfeee0;
+  background: rgba(130, 211, 109, 0.07);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.device-task.warn {
+  border-color: rgba(229, 166, 66, 0.24);
+  background: rgba(229, 166, 66, 0.08);
+}
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.care-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.care-card small {
+  color: var(--muted);
+}
+.care-card b {
+  display: block;
+  margin: 6px 0;
+  font-size: 20px;
+}
+.care-card p {
+  margin: 0;
+  color: #c9d3cb;
+  font-size: 12px;
+  line-height: 1.45;
+}
+@media (max-width: 1100px) {
+  .device-grid,
+  .care-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  .device-command-head {
+    flex-direction: column;
+  }
+  .device-grid,
+  .care-grid,
+  .device-signals {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -399,7 +636,15 @@
     <div class="view" id="chat"><div class="view-head"><div><h3 data-en="Agent Chat" data-zh="Agent 对话">Agent Chat</h3><p data-en="The chat is not a generic chatbot. It can call tools, query your trail-camera database, summarize evidence, and produce structured plans." data-zh="这不是普通聊天机器人。它可以调用工具、查询相机数据库、总结证据并生成结构化计划。">The chat is not a generic chatbot. It can call tools, query your trail-camera database, summarize evidence, and produce structured plans.</p></div></div><div class="chat"><div class="bubble"><b data-en="Hunter" data-zh="猎人">Hunter</b><br><span data-en="Where should I hunt tonight if I only have two hours?" data-zh="如果我今晚只有两个小时，应该去哪蹲？">Where should I hunt tonight if I only have two hours?</span></div><div class="bubble ai"><b>HuntAgent AI</b><br><span data-en="I recommend North Ridge near Pixie from 5:40–7:10 PM. Evidence: Big 8 appeared there 3 evenings in a row, wind stays favorable from the south creek entry, and the temperature drop matches your highest-activity historical pattern." data-zh="我建议 17:40–19:10 在 Pixie 附近的北坡点位。证据：Big 8 连续 3 个黄昏出现在那里，南侧溪谷进入路线风向有利，且降温符合你的历史高活跃规律。">I recommend North Ridge near Pixie from 5:40–7:10 PM. Evidence: Big 8 appeared there 3 evenings in a row, wind stays favorable from the south creek entry, and the temperature drop matches your highest-activity historical pattern.</span></div><div class="bubble"><b data-en="Hunter" data-zh="猎人">Hunter</b><br><span data-en="Show me only confirmed buck events from the last 7 days." data-zh="只显示过去 7 天已确认的公鹿事件。">Show me only confirmed buck events from the last 7 days.</span></div></div></div>
   </div></section>
   <section id="events" class="card section"><h3 data-en="Trail Camera Event Stream" data-zh="打猎相机事件流">Trail Camera Event Stream</h3><table class="table"><thead><tr><th data-en="Time" data-zh="时间">Time</th><th data-en="Camera" data-zh="相机">Camera</th><th data-en="AI Classification" data-zh="AI 识别">AI Classification</th><th data-en="Confidence" data-zh="置信度">Confidence</th><th data-en="Agent Action" data-zh="Agent 动作">Agent Action</th></tr></thead><tbody><tr><td>04:16</td><td>Pixie</td><td data-en="Whitetail buck · possible Big 8" data-zh="白尾鹿公鹿 · 疑似 Big 8">Whitetail buck · possible Big 8</td><td>86%</td><td data-en="Added to target evidence" data-zh="加入目标证据">Added to target evidence</td></tr><tr><td>03:52</td><td>Pixie</td><td data-en="Raccoon · non-target" data-zh="浣熊 · 非目标">Raccoon · non-target</td><td>91%</td><td data-en="Auto downgraded" data-zh="自动降权">Auto downgraded</td></tr><tr><td>22:31</td><td>Ridge</td><td data-en="Human activity" data-zh="人类活动">Human activity</td><td>78%</td><td data-en="High-priority alert" data-zh="高优先级提醒">High-priority alert</td></tr></tbody></table></section>
-  <section id="devices" class="card section"><h3 data-en="Device Operations" data-zh="设备运营">Device Operations</h3><div class="devices"><div class="device"><div><b>Pixie</b><small>SN: PX-00123</small></div><div><b>70%</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b data-en="Strong" data-zh="强">Strong</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>4</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Online" data-zh="在线">Online</b><small data-en="Status" data-zh="状态">Status</small></div><span class="tag" data-en="Keep monitoring" data-zh="继续监控">Keep monitoring</span></div><div class="device"><div><b>Creek Cam</b><small>SN: CC-00987</small></div><div><b style="color:var(--red)">18%</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b style="color:var(--amber)" data-en="Weak" data-zh="弱">Weak</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>2</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Online" data-zh="在线">Online</b><small data-en="Status" data-zh="状态">Status</small></div><span class="tag amber" data-en="Replace battery" data-zh="更换电池">Replace battery</span></div><div class="device"><div><b>Ridge</b><small>SN: RG-00456</small></div><div><b>--</b><small data-en="Battery" data-zh="电量">Battery</small></div><div><b>--</b><small data-en="Signal" data-zh="信号">Signal</small></div><div><b>--</b><small data-en="Target events" data-zh="目标事件">Target events</small></div><div><b data-en="Offline" data-zh="离线">Offline</b><small data-en="Last check 02:10" data-zh="最后检查 02:10">Last check 02:10</small></div><span class="tag amber" data-en="Check SIM/location" data-zh="检查 SIM/位置">Check SIM/location</span></div></div></section>
+  <section id="devices" class="card section device-command">
+    <div class="device-command-head"><div><span class="kicker" data-en="AI camera steward" data-zh="AI 相机管家">AI camera steward</span><h3 data-en="Device Operations" data-zh="设备智能管家">Device Operations</h3><p data-en="HuntAgent AI treats every trail camera like a field robot: it watches battery runway, signal quality, camera angle, facing direction, lens clarity, false-trigger load, storage, SIM health, and the next maintenance move." data-zh="HuntAgent AI 把每一台打猎相机当成野外机器人管理：持续判断电量续航、信号质量、安装角度、朝向、镜头清洁、误触发压力、存储、SIM 状态和下一步维护动作。">HuntAgent AI treats every trail camera like a field robot: it watches battery runway, signal quality, camera angle, facing direction, lens clarity, false-trigger load, storage, SIM health, and the next maintenance move.</p></div><div class="steward-score"><small data-en="Network health" data-zh="设备网络健康度">Network health</small><b>84/100</b><span data-en="2 cameras healthy · 1 needs field service" data-zh="2 台健康 · 1 台需要现场维护">2 cameras healthy · 1 needs field service</span></div></div>
+    <div class="care-grid"><div class="care-card"><small data-en="Battery runway" data-zh="电量续航预测">Battery runway</small><b>11.8 days</b><p data-en="AI estimates battery life from upload frequency, temperature, signal retries, and night-shot ratio." data-zh="根据上传频率、温度、信号重试和夜拍比例估算续航。">AI estimates battery life from upload frequency, temperature, signal retries, and night-shot ratio.</p></div><div class="care-card"><small data-en="Signal quality" data-zh="信号质量">Signal quality</small><b data-en="2 strong · 1 weak" data-zh="2 强 · 1 弱">2 strong · 1 weak</b><p data-en="Weak cellular signal increases failed uploads and battery drain on Creek Cam." data-zh="Creek Cam 蜂窝信号弱，会增加上传失败和电量消耗。">Weak cellular signal increases failed uploads and battery drain on Creek Cam.</p></div><div class="care-card"><small data-en="False-trigger load" data-zh="误触发压力">False-trigger load</small><b>17 / 41%</b><p data-en="Creek Cam is seeing grass-motion triggers; trim foreground brush or raise sensitivity threshold." data-zh="Creek Cam 出现草丛晃动误触发；建议清理前景杂草或提高触发阈值。">Creek Cam is seeing grass-motion triggers; trim foreground brush or raise sensitivity threshold.</p></div><div class="care-card"><small data-en="Lens and housing" data-zh="镜头与外壳">Lens and housing</small><b data-en="1 needs clean" data-zh="1 台需清洁">1 needs clean</b><p data-en="Dust spots and low contrast detected on Creek Cam night frames." data-zh="Creek Cam 夜间照片检测到灰尘斑点和低对比度。">Dust spots and low contrast detected on Creek Cam night frames.</p></div></div>
+    <div class="device-grid">
+      <article class="device-card"><div class="device-card-head"><div><h4>Pixie</h4><small>SN: PX-00123 · North ridge pinch</small></div><span class="health">92</span></div><div class="meter" style="--v:82%"><span></span></div><div class="device-signals"><div><small data-en="Battery forecast" data-zh="电量预测">Battery forecast</small><b>70% · 18d</b></div><div><small data-en="Signal" data-zh="信号">Signal</small><b>-82 dBm</b></div><div><small data-en="Angle" data-zh="角度">Angle</small><b data-en="7° low" data-zh="低 7°">7° low</b></div><div><small data-en="Facing" data-zh="朝向">Facing</small><b data-en="NE · good" data-zh="东北 · 良好">NE · good</b></div><div><small data-en="Lens" data-zh="镜头">Lens</small><b data-en="Clear" data-zh="清晰">Clear</b></div><div><small data-en="False triggers" data-zh="误触发">False triggers</small><b>6%</b></div></div><div class="device-task" data-en="Butler action: keep monitoring. Raise the camera about 4° only if target events keep clipping antlers." data-zh="管家动作：继续监控。如目标照片持续截断鹿角，再将相机上调约 4°。">Butler action: keep monitoring. Raise the camera about 4° only if target events keep clipping antlers.</div></article>
+      <article class="device-card warn"><div class="device-card-head"><div><h4>Creek Cam</h4><small>SN: CC-00987 · Creek crossing</small></div><span class="health warn">58</span></div><div class="meter" style="--v:38%"><span></span></div><div class="device-signals"><div><small data-en="Battery forecast" data-zh="电量预测">Battery forecast</small><b>18% · 2d</b></div><div><small data-en="Signal" data-zh="信号">Signal</small><b>-108 dBm</b></div><div><small data-en="Angle" data-zh="角度">Angle</small><b data-en="14° low" data-zh="低 14°">14° low</b></div><div><small data-en="Facing" data-zh="朝向">Facing</small><b data-en="West glare" data-zh="西向眩光">West glare</b></div><div><small data-en="Lens" data-zh="镜头">Lens</small><b data-en="Dust spots" data-zh="有灰尘">Dust spots</b></div><div><small data-en="False triggers" data-zh="误触发">False triggers</small><b>41%</b></div></div><div class="device-task warn" data-en="Butler action: replace battery, wipe lens, rotate 18° north, trim grass in the first 12 ft, and reduce PIR sensitivity one step." data-zh="管家动作：更换电池、擦镜头、向北旋转 18°、清理前方 12 英尺杂草，并将 PIR 灵敏度降低一档。">Butler action: replace battery, wipe lens, rotate 18° north, trim grass in the first 12 ft, and reduce PIR sensitivity one step.</div></article>
+      <article class="device-card offline"><div class="device-card-head"><div><h4>Ridge</h4><small>SN: RG-00456 · Upper saddle</small></div><span class="health bad">33</span></div><div class="meter" style="--v:24%"><span></span></div><div class="device-signals"><div><small data-en="Battery forecast" data-zh="电量预测">Battery forecast</small><b data-en="Unknown" data-zh="未知">Unknown</b></div><div><small data-en="Signal" data-zh="信号">Signal</small><b data-en="No heartbeat" data-zh="无心跳">No heartbeat</b></div><div><small data-en="Angle" data-zh="角度">Angle</small><b data-en="Tilt drift" data-zh="角度漂移">Tilt drift</b></div><div><small data-en="Facing" data-zh="朝向">Facing</small><b data-en="12° off lane" data-zh="偏离通道 12°">12° off lane</b></div><div><small data-en="Lens" data-zh="镜头">Lens</small><b data-en="Unknown" data-zh="未知">Unknown</b></div><div><small data-en="False triggers" data-zh="误触发">False triggers</small><b>--</b></div></div><div class="device-task warn" data-en="Butler action: field check SIM, antenna seating, strap tension, and rotate 12° east toward the saddle trail." data-zh="管家动作：现场检查 SIM、天线固定、绑带松紧，并向东旋转 12° 对准山鞍通道。">Butler action: field check SIM, antenna seating, strap tension, and rotate 12° east toward the saddle trail.</div></article>
+    </div>
+  </section>
   <section id="reports" class="card section intelligence"><div class="head"><div><h3 data-en="Industry News & Scouting Reports" data-zh="行业新闻与侦察报告">Industry News & Scouting Reports</h3><p data-en="Track hunting technology, trail-camera workflows, event windows, gear signals, and field-ready AI scouting ideas." data-zh="追踪打猎科技、相机工作流、行业活动窗口、装备信号和可用于实战的 AI 侦察思路。">Track hunting technology, trail-camera workflows, event windows, gear signals, and field-ready AI scouting ideas.</p></div><a class="btn secondary" href="/news" data-en="Open news hub" data-zh="打开新闻中心">Open news hub</a></div><div class="report-grid"><article class="report-card"><div><span class="tag">Buyer Guide</span><h4 data-en="AI Trail Camera Buyer’s Guide" data-zh="AI 打猎相机购买指南">AI Trail Camera Buyer’s Guide</h4><p data-en="A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering." data-zh="围绕相机选择、流量套餐、电池续航、图像质量和 AI 照片过滤的实用框架。">A practical framework for camera choice, data plans, battery life, image quality, and AI photo filtering.</p></div><a href="/insights" class="tag">Read</a></article><article class="report-card"><div><span class="tag amber">News Brief</span><h4 data-en="Hunting Industry Event Watch" data-zh="打猎行业活动观察">Hunting Industry Event Watch</h4><p data-en="Coverage format for trade events, product signals, conservation activity, and field-relevant announcements." data-zh="用于行业活动、产品信号、保育动态和实战相关公告的新闻简报格式。">Coverage format for trade events, product signals, conservation activity, and field-relevant announcements.</p></div><a href="/news" class="tag">Open</a></article><article class="report-card"><div><span class="tag">Gear Radar</span><h4 data-en="Smart Hunting Gear Radar" data-zh="智能打猎设备雷达">Smart Hunting Gear Radar</h4><p data-en="Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows." data-zh="蜂窝相机、太阳能套件、野外传感器、智能喂食器、地图工具和 AI 工作流。">Cellular cameras, solar kits, field sensors, smart feeders, mapping tools, and AI-ready workflows.</p></div><a href="/news" class="tag">Explore</a></article></div></section>
   <section class="contact-cta"><div><h3 data-en="Want HuntAgent AI to analyze your hunting workflow?" data-zh="想让 HuntAgent AI 分析你的打猎工作流？">Want HuntAgent AI to analyze your hunting workflow?</h3><p data-en="Share your trail-camera setup, target species, hunting region, and the field decision you want the agent to help with." data-zh="告诉我们你的打猎相机配置、目标物种、所在地区，以及你希望智能体帮助判断的现场问题。">Share your trail-camera setup, target species, hunting region, and the field decision you want the agent to help with.</p></div><a class="btn" href="/contact" data-en="Request access" data-zh="申请访问">Request access</a></section>
 <footer class="footer"><div class="footer-grid"><div><div class="foot-brand"><div class="logo"><svg viewBox="0 0 64 64" fill="none"><path d="M31 50c-2-8-2-15 2-22 4-8 3-13-1-19 8 3 13 9 13 17 0 5-3 10-9 16 5-1 10-5 14-10 2 9-3 19-19 18Z" fill="white"/><path d="M19 8c2 8 6 14 13 18M45 8c-2 8-6 14-13 18" stroke="#82d36d" stroke-width="4" stroke-linecap="round"/></svg></div><div><b>HuntAgent AI</b><span data-en="AI-powered hunting intelligence for trail-camera networks and serious hunters." data-zh="面向打猎相机网络和专业猎人的 AI 猎场情报平台。">AI-powered hunting intelligence for trail-camera networks and serious hunters.</span></div></div></div><div><h4 data-en="Platform" data-zh="平台">Platform</h4><a href="#dashboard" data-en="Command Center" data-zh="指挥中心">Command Center</a><a href="#workspace" data-en="Agent Workspace" data-zh="Agent 工作台">Agent Workspace</a><a href="#devices" data-en="Device Operations" data-zh="设备运营">Device Operations</a></div><div><h4 data-en="Intelligence" data-zh="猎场情报">Intelligence</h4><a href="/insights" data-en="Field Intelligence" data-zh="猎场情报">Field Intelligence</a><a href="/news" data-en="Industry News" data-zh="行业新闻">Industry News</a><a href="/insights" data-en="Target Profiles" data-zh="目标档案">Target Profiles</a></div><div><h4 data-en="Contact" data-zh="联系">Contact</h4><a href="/contact" data-en="Request access" data-zh="申请访问">Request access</a><a href="/feedback" data-en="Feedback" data-zh="反馈">Feedback</a><a href="mailto:aicodeclaw@gmail.com">aicodeclaw@gmail.com</a></div></div><div class="legal"><span>© 2026 HuntAgent AI.</span></div></footer>
