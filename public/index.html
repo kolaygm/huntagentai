@@ -579,9 +579,323 @@ section[id] {
   font-size: 12px;
   line-height: 1.45;
 }
+.plan-board,
+.prediction-board {
+  display: grid;
+  gap: 16px;
+}
+.plan-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.plan-visual {
+  position: relative;
+  min-height: 330px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(4, 7, 6, 0.92), rgba(4, 7, 6, 0.34)),
+    var(--buck) center / cover no-repeat;
+}
+.plan-visual:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 45%, rgba(130, 211, 109, 0.18), transparent 28%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.42), transparent 55%);
+}
+.plan-visual-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  padding: 24px;
+}
+.plan-visual-copy h4 {
+  margin: 16px 0 10px;
+  font-size: 34px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+.plan-visual-copy p {
+  margin: 0;
+  color: #dce7dd;
+  line-height: 1.55;
+}
+.plan-score-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+.plan-score-row div,
+.model-card,
+.signal-card,
+.evidence-card,
+.risk-card {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+}
+.plan-score-row div {
+  padding: 12px;
+}
+.plan-score-row small,
+.model-card small,
+.signal-card small,
+.evidence-card small,
+.risk-card small {
+  color: var(--muted);
+}
+.plan-score-row b {
+  display: block;
+  margin-top: 5px;
+  font-size: 24px;
+}
+.plan-intel {
+  display: grid;
+  gap: 12px;
+}
+.plan-intel .mini {
+  min-height: 0;
+}
+.plan-map-card {
+  min-height: 300px;
+  border-radius: 22px;
+}
+.plan-map-card .map-title {
+  max-width: 74%;
+}
+.plan-execution {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+  gap: 16px;
+}
+.plan-steps {
+  display: grid;
+  gap: 10px;
+}
+.plan-step {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.plan-step .time {
+  font-size: 18px;
+}
+.plan-step h4 {
+  margin: 0 0 3px;
+}
+.plan-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.step-badge {
+  border: 1px solid rgba(130, 211, 109, 0.24);
+  border-radius: 999px;
+  padding: 7px 9px;
+  color: #d9ffd4;
+  background: rgba(130, 211, 109, 0.1);
+  font-size: 12px;
+  font-weight: 800;
+}
+.evidence-grid,
+.risk-grid,
+.model-grid,
+.signal-grid,
+.forecast-zones {
+  display: grid;
+  gap: 12px;
+}
+.evidence-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.evidence-card,
+.risk-card,
+.model-card,
+.signal-card {
+  padding: 14px;
+}
+.evidence-card b,
+.risk-card b,
+.model-card b,
+.signal-card b {
+  display: block;
+  margin: 7px 0 4px;
+  font-size: 18px;
+}
+.evidence-card p,
+.risk-card p,
+.model-card p,
+.signal-card p {
+  margin: 0;
+  color: #cbd5cd;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.risk-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.plan-actions {
+  display: grid;
+  gap: 10px;
+}
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(130, 211, 109, 0.18);
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(130, 211, 109, 0.07);
+}
+.action-row span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.prediction-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
+  gap: 16px;
+}
+.forecast-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.035));
+}
+.forecast-card h4 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+.forecast-card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.bars.labeled {
+  position: relative;
+  height: 150px;
+  padding-bottom: 30px;
+}
+.bars.labeled span {
+  position: relative;
+}
+.bars.labeled span:after {
+  content: attr(data-t);
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  color: #7f8b84;
+  font-size: 10px;
+}
+.model-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.model-card strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--green);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+.driver-list {
+  display: grid;
+  gap: 10px;
+}
+.driver {
+  display: grid;
+  grid-template-columns: 125px minmax(0, 1fr) 46px;
+  gap: 10px;
+  align-items: center;
+}
+.driver span {
+  color: #dce7dd;
+  font-size: 13px;
+}
+.driver-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.driver-track i {
+  display: block;
+  width: var(--v);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), #c6ec84);
+}
+.forecast-zones {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.zone-card {
+  position: relative;
+  min-height: 160px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 14px;
+  overflow: hidden;
+  background:
+    linear-gradient(0deg, rgba(4, 7, 6, 0.72), rgba(4, 7, 6, 0.38)),
+    var(--buck2) center / cover no-repeat;
+}
+.zone-card:nth-child(2) {
+  background-image: linear-gradient(0deg, rgba(4, 7, 6, 0.72), rgba(4, 7, 6, 0.38)), var(--deer);
+}
+.zone-card:nth-child(3) {
+  background-image: linear-gradient(0deg, rgba(4, 7, 6, 0.72), rgba(4, 7, 6, 0.38)), var(--buck);
+}
+.zone-card b,
+.zone-card small,
+.zone-card span {
+  position: relative;
+  z-index: 1;
+}
+.zone-card b {
+  display: block;
+  margin-top: 42px;
+  font-size: 20px;
+}
+.zone-card span {
+  display: inline-flex;
+  margin-top: 9px;
+}
+.signal-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.generated-pulse {
+  display: none;
+  margin-bottom: 14px;
+  border: 1px solid rgba(130, 211, 109, 0.28);
+  border-radius: 18px;
+  padding: 12px 14px;
+  color: #dff7db;
+  background: linear-gradient(90deg, rgba(130, 211, 109, 0.16), rgba(121, 167, 255, 0.08));
+}
+#plan.generated .generated-pulse {
+  display: block;
+}
 @media (max-width: 1100px) {
   .device-grid,
-  .care-grid {
+  .care-grid,
+  .plan-hero,
+  .plan-execution,
+  .prediction-hero,
+  .model-grid,
+  .forecast-zones {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -591,8 +905,33 @@ section[id] {
   }
   .device-grid,
   .care-grid,
-  .device-signals {
+  .device-signals,
+  .plan-hero,
+  .plan-execution,
+  .plan-score-row,
+  .evidence-grid,
+  .risk-grid,
+  .prediction-hero,
+  .model-grid,
+  .forecast-zones,
+  .signal-grid {
     grid-template-columns: 1fr;
+  }
+  .plan-step {
+    grid-template-columns: 1fr;
+  }
+  .plan-map-card .map-title {
+    max-width: 100%;
+  }
+  .driver {
+    grid-template-columns: 1fr;
+  }
+  .bars.labeled span:after {
+    display: none;
+  }
+  .bars.labeled {
+    height: 132px;
+    padding-bottom: 16px;
   }
 }
 </style>
@@ -622,17 +961,45 @@ section[id] {
 <main class="main">
   <section id="dashboard" class="top"><div><h2 data-en="Hunting Intelligence Command Center" data-zh="AI 猎场情报指挥中心">Hunting Intelligence Command Center</h2><div class="sub"><span class="dot"></span><span data-en="Last update 09:41 · 3 cameras monitored · HuntAgent AI online" data-zh="最近更新 09:41 · 正在监控 3 台相机 · HuntAgent AI 在线">Last update 09:41 · 3 cameras monitored · HuntAgent AI online</span></div></div></section>
   <section class="grid hero">
-    <article class="card hero-card"><div class="inner"><span class="kicker" data-en="AI decision engine for trail-camera networks" data-zh="面向打猎相机网络的 AI 决策引擎">AI decision engine for trail-camera networks</span><div class="score"><strong>78</strong><span>/100</span></div><h3 data-en="North Ridge is the best evening setup before 6:05 PM." data-zh="今晚 18:05 前，North Ridge 是最佳蹲守点位。">North Ridge is the best evening setup before 6:05 PM.</h3><p class="hero-copy" data-en="HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow." data-zh="HuntAgent AI 将打猎相机照片、目标动物历史、风向、天气、地图和设备状态转化为专业级猎场情报工作流。">HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow.</p><div class="evidence"><div>◎ <span data-en="Target buck appeared near Pixie 3 evenings in a row." data-zh="目标公鹿连续 3 个黄昏出现在 Pixie 附近。">Target buck appeared near Pixie 3 evenings in a row.</span></div><div>≋ <span data-en="Wind is favorable for the south creek approach." data-zh="风向有利于从南侧溪谷路线进入。">Wind is favorable for the south creek approach.</span></div><div>♨ <span data-en="Temperature drop matches high-activity historical pattern." data-zh="降温符合历史高活跃规律。">Temperature drop matches high-activity historical pattern.</span></div></div><div class="cta"><button class="btn" data-en="Generate tonight's plan" data-zh="生成今晚计划">Generate tonight's plan</button><button class="btn secondary" data-en="View evidence" data-zh="查看证据">View evidence</button></div></div></article>
+    <article class="card hero-card"><div class="inner"><span class="kicker" data-en="AI decision engine for trail-camera networks" data-zh="面向打猎相机网络的 AI 决策引擎">AI decision engine for trail-camera networks</span><div class="score"><strong>78</strong><span>/100</span></div><h3 data-en="North Ridge is the best evening setup before 6:05 PM." data-zh="今晚 18:05 前，North Ridge 是最佳蹲守点位。">North Ridge is the best evening setup before 6:05 PM.</h3><p class="hero-copy" data-en="HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow." data-zh="HuntAgent AI 将打猎相机照片、目标动物历史、风向、天气、地图和设备状态转化为专业级猎场情报工作流。">HuntAgent AI converts trail-camera captures, target animal history, wind, weather, maps, and device telemetry into a professional hunting intelligence workflow.</p><div class="evidence"><div>◎ <span data-en="Target buck appeared near Pixie 3 evenings in a row." data-zh="目标公鹿连续 3 个黄昏出现在 Pixie 附近。">Target buck appeared near Pixie 3 evenings in a row.</span></div><div>≋ <span data-en="Wind is favorable for the south creek approach." data-zh="风向有利于从南侧溪谷路线进入。">Wind is favorable for the south creek approach.</span></div><div>♨ <span data-en="Temperature drop matches high-activity historical pattern." data-zh="降温符合历史高活跃规律。">Temperature drop matches high-activity historical pattern.</span></div></div><div class="cta"><button class="btn" id="generatePlanBtn" data-en="Generate tonight's plan" data-zh="生成今晚计划">Generate tonight's plan</button><button class="btn secondary" id="viewEvidenceBtn" data-en="View evidence" data-zh="查看证据">View evidence</button></div></div></article>
     <div class="right-stack"><article class="card brief"><h3 data-en="Agent Brief" data-zh="Agent 简报">Agent Brief</h3><div class="brief-list"><div class="brief-row"><div class="ic">🦌</div><div><b data-en="Big 8 likely active" data-zh="Big 8 可能活跃">Big 8 likely active</b><p data-en="Last seen Pixie · 04:16 · confidence 82%" data-zh="最近出现 Pixie · 04:16 · 置信度 82%">Last seen Pixie · 04:16 · confidence 82%</p></div><span class="tag">Target</span></div><div class="brief-row"><div class="ic">🔋</div><div><b data-en="Creek Cam needs service" data-zh="Creek Cam 需要处理">Creek Cam needs service</b><p data-en="Battery 18%, weak signal, may not last weekend" data-zh="电量 18%，信号弱，可能撑不过周末">Battery 18%, weak signal, may not last weekend</p></div><span class="tag amber">Action</span></div><div class="brief-row"><div class="ic">⌁</div><div><b data-en="Best window 5:40–7:10 PM" data-zh="最佳窗口 17:40–19:10">Best window 5:40–7:10 PM</b><p data-en="Activity model peaks around last light" data-zh="活跃模型在天黑前后达到峰值">Activity model peaks around last light</p></div><span class="tag">High</span></div></div></article><article class="card map"><div class="map-title"><span class="kicker" data-en="AI field map" data-zh="AI 猎场地图">AI field map</span><h3 data-en="Hot zone: timber edge between Pixie and Creek Cam" data-zh="热点：Pixie 与 Creek Cam 之间的林缘">Hot zone: timber edge between Pixie and Creek Cam</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-4 82 C16 72 26 70 42 76 S69 84 105 70"/><path class="route-recommend" d="M12 86 C27 78 33 67 45 62 S63 54 74 42"/><path class="route-buck" d="M23 26 C34 39 42 47 51 49 S61 50 66 58"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div></article></div>
   </section>
   <section class="stats"><div class="stat"><small data-en="New events" data-zh="新事件">New events</small><b>24</b><em data-en="+31% vs yesterday" data-zh="较昨日 +31%">+31% vs yesterday</em></div><div class="stat"><small data-en="Target animal events" data-zh="目标动物事件">Target animal events</small><b>4</b><em data-en="2 high priority" data-zh="2 个高优先级">2 high priority</em></div><div class="stat"><small data-en="Empty triggers filtered" data-zh="空触发过滤">Empty triggers filtered</small><b>17</b><em data-en="AI auto archived" data-zh="AI 自动归档">AI auto archived</em></div><div class="stat"><small data-en="Device alerts" data-zh="设备预警">Device alerts</small><b>1</b><em data-en="Creek Cam battery" data-zh="Creek Cam 电池">Creek Cam battery</em></div></section>
   <section class="grid modules"><div class="module"><i>✦</i><div><h4 data-en="AI Agent Copilot" data-zh="AI 智能体助手">AI Agent Copilot</h4><p data-en="Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history." data-zh="用自然语言提问，让 Agent 查询相机、照片、天气、地图和历史数据。">Ask natural-language questions and let the agent query cameras, photos, weather, maps, and history.</p></div></div><div class="module"><i>🧭</i><div><h4 data-en="Tonight's Plan" data-zh="今晚行动计划">Tonight's Plan</h4><p data-en="Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion." data-zh="生成时间窗口、进入路线、蹲守点、提醒和推荐证据。">Get a time window, entry route, stand recommendation, reminders, and evidence behind every suggestion.</p></div></div><div class="module"><i>🗺</i><div><h4 data-en="Field Map & Hot Zones" data-zh="猎场地图与热区">Field Map & Hot Zones</h4><p data-en="See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions." data-zh="查看相机位置、近期事件、风向、预测活动走廊和 AI 路线建议。">See camera locations, recent events, wind, predicted movement corridors, and AI route suggestions.</p></div></div><div class="module"><i>🦌</i><div><h4 data-en="Target Buck Profiles" data-zh="目标动物档案">Target Buck Profiles</h4><p data-en="Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence." data-zh="聚合同一只动物的照片，追踪频次、时间规律、区域和置信度。">Group likely same-animal captures, track frequency, time-of-day patterns, zones, and confidence.</p></div></div><div class="module"><i>▦</i><div><h4 data-en="Smart Album" data-zh="智能图集">Smart Album</h4><p data-en="Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events." data-zh="识别物种、过滤空触发、检测人/车辆，并把照片变成结构化事件。">Classify species, filter empty triggers, detect people or vehicles, and turn photos into structured events.</p></div></div><div class="module"><i>▰</i><div><h4 data-en="Prediction Analytics" data-zh="预测分析">Prediction Analytics</h4><p data-en="Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends." data-zh="结合相机历史、天气变化、日出、月相和气压趋势预测小时级活动。">Forecast hourly movement using your camera history, weather shifts, sunrise, moon, and pressure trends.</p></div></div><div class="module"><i>🔧</i><div><h4 data-en="Device Operations" data-zh="设备运营">Device Operations</h4><p data-en="Translate battery, signal, storage, and SIM data into plain-language maintenance decisions." data-zh="把电池、信号、存储和 SIM 数据翻译成清晰的维护建议。">Translate battery, signal, storage, and SIM data into plain-language maintenance decisions.</p></div></div><div class="module"><i>☷</i><div><h4 data-en="Reports & Automation" data-zh="报告与自动化">Reports & Automation</h4><p data-en="Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows." data-zh="生成侦察报告、周报、目标提醒、团队记录和自动化工作流。">Generate scouting reports, weekly summaries, target alerts, team notes, and recurring workflows.</p></div></div></section>
   <section id="workspace" class="workspace"><aside class="card tabs"><button class="active" data-view="plan" data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</button><button data-view="mapview" data-en="Field Map" data-zh="猎场地图">Field Map</button><button data-view="album" data-en="Smart Album" data-zh="智能图集">Smart Album</button><button data-view="profile" data-en="Target Profile" data-zh="目标档案">Target Profile</button><button data-view="predict" data-en="Predictions" data-zh="活动预测">Predictions</button><button data-view="chat" data-en="Agent Chat" data-zh="Agent 对话">Agent Chat</button></aside><div class="card">
-    <div class="view active" id="plan"><div class="view-head"><div><h3 data-en="Tonight's Action Plan" data-zh="今晚行动计划">Tonight's Action Plan</h3><p data-en="A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history." data-zh="基于打猎相机照片、风向、地形、气温和目标公鹿历史生成的战术计划。">A tactical plan generated from trail-camera captures, wind, topography, temperature, and target buck history.</p></div><button class="btn" data-en="Set reminder" data-zh="设置提醒">Set reminder</button></div><div class="two"><div class="timeline"><div class="step"><div class="time">4:55</div><div><h4 data-en="Check wind" data-zh="检查风向">Check wind</h4><p data-en="Confirm the south creek approach remains downwind from the main travel corridor." data-zh="确认南侧溪谷路线仍处于主通道下风侧。">Confirm the south creek approach remains downwind from the main travel corridor.</p></div></div><div class="step"><div class="time">5:10</div><div><h4 data-en="Enter from south route" data-zh="从南侧路线进入">Enter from south route</h4><p data-en="Stay low near the creek line, avoid the ridge spine, and move slowly." data-zh="沿溪谷低姿态进入，避开山脊主线，慢速移动。">Stay low near the creek line, avoid the ridge spine, and move slowly.</p></div></div><div class="step"><div class="time">5:35</div><div><h4 data-en="Settle at observation point" data-zh="到达观察点">Settle at observation point</h4><p data-en="Be stationary before the 5:40 activity window opens." data-zh="在 17:40 活跃窗口开始前保持静止。">Be stationary before the 5:40 activity window opens.</p></div></div><div class="step"><div class="time">7:15</div><div><h4 data-en="Exit and log result" data-zh="撤离并记录结果">Exit and log result</h4><p data-en="Exit by the same route and let the agent update the next recommendation." data-zh="按原路线撤离，并让 Agent 更新下一次推荐。">Exit by the same route and let the agent update the next recommendation.</p></div></div></div><div class="grid"><div class="mini"><h4 data-en="Why this plan" data-zh="为什么推荐">Why this plan</h4><p data-en="Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset." data-zh="Big 8 过去 7 天在 17:30-19:30 出现 5 次。当前风向避开主通道。日落前后降温 6°F。">Big 8 appeared 5 times in the past 7 days between 5:30 and 7:30 PM. Current wind avoids the main corridor. Temperature drops 6°F near sunset.</p></div><div class="mini"><h4 data-en="Confidence" data-zh="置信度">Confidence</h4><p><b style="font-size:42px;color:var(--green)">72%</b><br><span data-en="Medium-high: strong pattern, limited by only 3 active cameras." data-zh="中高：规律明显，但受限于仅 3 台在线相机。">Medium-high: strong pattern, limited by only 3 active cameras.</span></p></div><div class="mini"><h4 data-en="Field checklist" data-zh="现场清单">Field checklist</h4><p data-en="Season, access, light window, wind line, route, and backstop reviewed before entry." data-zh="进入前复核猎季、通行、光照窗口、风线、路线和背景。">Season, access, light window, wind line, route, and backstop reviewed before entry.</p></div></div></div></div>
+    <div class="view active" id="plan">
+      <div class="generated-pulse" data-en="HuntAgent AI generated a fresh field plan from 286 captures, 3 cameras, wind, temperature, topography, and Big 8 history." data-zh="HuntAgent AI 已基于 286 张照片、3 台相机、风向、气温、地形和 Big 8 历史记录生成最新行动计划。">HuntAgent AI generated a fresh field plan from 286 captures, 3 cameras, wind, temperature, topography, and Big 8 history.</div>
+      <div class="view-head"><div><h3 data-en="Tonight's Agent Plan" data-zh="今晚 Agent 行动计划">Tonight's Agent Plan</h3><p data-en="A structured hunting plan with the recommended window, entry route, target zone, evidence, field controls, and fallback moves." data-zh="结构化输出推荐时间窗、进入路线、目标区域、证据、现场控制点和备选动作。">A structured hunting plan with the recommended window, entry route, target zone, evidence, field controls, and fallback moves.</p></div><button class="btn" data-en="Set reminder" data-zh="设置提醒">Set reminder</button></div>
+      <div class="plan-board">
+        <div class="plan-hero">
+          <div class="plan-visual"><div class="plan-visual-copy"><span class="kicker" data-en="AI generated field plan" data-zh="AI 生成行动计划">AI generated field plan</span><h4 data-en="Sit North Ridge from 5:40–7:10 PM." data-zh="17:40–19:10 蹲守 North Ridge。">Sit North Ridge from 5:40–7:10 PM.</h4><p data-en="Primary target: Big 8. Enter from the south creek line, settle before last-light movement, and avoid the main ridge corridor until the wind confirms." data-zh="主要目标：Big 8。从南侧溪谷路线进入，在天黑前活跃窗口前就位，并在风向确认前避开主山脊通道。">Primary target: Big 8. Enter from the south creek line, settle before last-light movement, and avoid the main ridge corridor until the wind confirms.</p><div class="plan-score-row"><div><small data-en="Hunt score" data-zh="出猎指数">Hunt score</small><b>78/100</b></div><div><small data-en="Confidence" data-zh="置信度">Confidence</small><b>82%</b></div><div><small data-en="Best window" data-zh="最佳窗口">Best window</small><b>90 min</b></div></div></div></div>
+          <div class="plan-intel">
+            <div class="mini"><h4 data-en="Decision summary" data-zh="决策摘要">Decision summary</h4><p data-en="The model ranks North Ridge first because target events, wind discipline, temperature drop, and the Pixie-to-Creek movement pattern align within the same 90-minute window." data-zh="模型将 North Ridge 排在第一位，因为目标事件、风向控制、降温趋势和 Pixie 到 Creek 的活动路径集中在同一个 90 分钟窗口内。">The model ranks North Ridge first because target events, wind discipline, temperature drop, and the Pixie-to-Creek movement pattern align within the same 90-minute window.</p></div>
+            <div class="map map-large plan-map-card"><div class="map-title"><span class="kicker" data-en="route + hot zone" data-zh="路线 + 热区">route + hot zone</span><h3 data-en="Enter low, stay downwind, watch the timber edge." data-zh="低位进入，下风侧停留，观察林缘。">Enter low, stay downwind, watch the timber edge.</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-5 80 C15 70 30 72 44 77 S74 84 105 67"/><path class="route-recommend" d="M9 88 C24 82 33 70 44 64 S64 55 77 41"/><path class="route-buck" d="M20 25 C30 35 39 45 50 49 S60 51 68 60"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">AI</div><div class="map-scale">500 ft</div></div>
+          </div>
+        </div>
+        <div class="evidence-grid"><div class="evidence-card"><small data-en="Target evidence" data-zh="目标证据">Target evidence</small><b>5 / 7 evenings</b><p data-en="Big 8 or likely same-animal captures appear around Pixie and the timber edge in the last-light window." data-zh="Big 8 或疑似同一目标在 Pixie 与林缘附近的天黑前窗口多次出现。">Big 8 or likely same-animal captures appear around Pixie and the timber edge in the last-light window.</p></div><div class="evidence-card"><small data-en="Wind fit" data-zh="风向匹配">Wind fit</small><b data-en="Favorable" data-zh="有利">Favorable</b><p data-en="South creek entry keeps scent off the main travel corridor for the first two hours." data-zh="南侧溪谷进入路线可在前两小时避开主活动通道的气味线。">South creek entry keeps scent off the main travel corridor for the first two hours.</p></div><div class="evidence-card"><small data-en="Weather trigger" data-zh="天气触发">Weather trigger</small><b>-6°F</b><p data-en="Temperature drop and pressure stabilization match prior high-activity evenings." data-zh="降温和气压稳定与历史高活跃黄昏相匹配。">Temperature drop and pressure stabilization match prior high-activity evenings.</p></div></div>
+        <div class="plan-execution">
+          <div class="mini"><h4 data-en="Execution timeline" data-zh="执行时间线">Execution timeline</h4><div class="plan-steps"><div class="plan-step"><div class="time">16:55</div><div><h4 data-en="Wind confirmation" data-zh="确认风向">Wind confirmation</h4><p data-en="Check south creek wind. If it turns west, use the Ridge fallback instead." data-zh="检查南侧溪谷风向。如转西风，改用 Ridge 备选点。">Check south creek wind. If it turns west, use the Ridge fallback instead.</p></div><span class="step-badge">Gate 1</span></div><div class="plan-step"><div class="time">17:10</div><div><h4 data-en="Low entry" data-zh="低位进入">Low entry</h4><p data-en="Move along the creek edge and avoid crossing the predicted movement lane." data-zh="沿溪谷边缘移动，避免穿过预测活动通道。">Move along the creek edge and avoid crossing the predicted movement lane.</p></div><span class="step-badge">Route</span></div><div class="plan-step"><div class="time">17:35</div><div><h4 data-en="Settle and go quiet" data-zh="就位静默">Settle and go quiet</h4><p data-en="Settle before the activity curve climbs; keep Ridge Cam alerts on." data-zh="在活跃曲线开始上升前就位，并保持 Ridge Cam 提醒开启。">Settle before the activity curve climbs; keep Ridge Cam alerts on.</p></div><span class="step-badge">Window</span></div><div class="plan-step"><div class="time">19:15</div><div><h4 data-en="Exit and recap" data-zh="撤离复盘">Exit and recap</h4><p data-en="Exit by the same route and let the agent update the model with field notes." data-zh="按原路线撤离，并让 Agent 用现场记录更新模型。">Exit by the same route and let the agent update the model with field notes.</p></div><span class="step-badge">Recap</span></div></div></div>
+          <div class="grid"><div class="mini"><h4 data-en="Field controls" data-zh="现场控制点">Field controls</h4><div class="risk-grid"><div class="risk-card"><small data-en="Do not cross" data-zh="不要穿越">Do not cross</small><b data-en="Main corridor" data-zh="主活动通道">Main corridor</b><p data-en="Crossing it before sunset contaminates the highest-probability lane." data-zh="日落前穿越会干扰最高概率通道。">Crossing it before sunset contaminates the highest-probability lane.</p></div><div class="risk-card"><small data-en="Fallback" data-zh="备选">Fallback</small><b>Creek pinch</b><p data-en="Use only if the wind shifts west or Pixie sends a target alert before 5:30." data-zh="仅在转西风或 Pixie 在 17:30 前发出目标提醒时使用。">Use only if the wind shifts west or Pixie sends a target alert before 5:30.</p></div></div></div><div class="mini"><h4 data-en="Agent checklist" data-zh="Agent 清单">Agent checklist</h4><div class="plan-actions"><div class="action-row"><b data-en="Route loaded" data-zh="路线已加载">Route loaded</b><span>South creek</span></div><div class="action-row"><b data-en="Camera alerts armed" data-zh="相机提醒已开启">Camera alerts armed</b><span>Pixie + Creek</span></div><div class="action-row"><b data-en="Post-hunt recap" data-zh="出猎后复盘">Post-hunt recap</b><span data-en="Auto draft" data-zh="自动草稿">Auto draft</span></div></div></div></div>
+        </div>
+      </div>
+    </div>
     <div class="view" id="mapview"><div class="view-head"><div><h3 data-en="Field Map & AI Hot Zones" data-zh="猎场地图与 AI 热区">Field Map & AI Hot Zones</h3><p data-en="A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors." data-zh="桌面地图图层展示相机、动物事件、风向、推荐路线和预测活动走廊。">A desktop map layer for cameras, animal events, wind, suggested routes, and predicted movement corridors.</p></div><button class="btn" data-en="Generate route" data-zh="生成路线">Generate route</button></div><div class="map map-large" style="min-height:430px"><div class="map-title"><span class="kicker" data-en="SW wind 6 mph · next 12 hours" data-zh="西南风 6mph · 未来 12 小时">SW wind 6 mph · next 12 hours</span><h3 data-en="Recommended route avoids the main travel corridor." data-zh="推荐路线避开主活动通道。">Recommended route avoids the main travel corridor.</h3></div><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="route-channel" d="M-5 80 C15 70 30 72 44 77 S74 84 105 67"/><path class="route-recommend" d="M9 88 C24 82 33 70 44 64 S64 55 77 41"/><path class="route-buck" d="M20 25 C30 35 39 45 50 49 S60 51 68 60"/></svg><div class="wind-arrow w1">➜</div><div class="wind-arrow w2">➜</div><div class="wind-arrow w3">➜</div><div class="map-event e1"></div><div class="map-event e2"></div><div class="map-event target-event e3"></div><div class="map-event e4"></div><div class="map-event e5"></div><div class="map-event e6"></div><div class="map-event e7"></div><div class="map-event target-event e8"></div><div class="map-pin pin1">Pixie</div><div class="map-pin pin2">Creek</div><div class="map-pin pin3">Ridge</div><div class="heat">🦌</div><div class="map-legend"><span><i class="legend-ring"></i>Camera location</span><span><i class="legend-dot"></i>Recent event</span><span><i class="legend-hot"></i>Target hot zone</span><span><i class="legend-entry"></i>Buck route</span><span><i class="legend-route"></i>Recommended entry</span></div><div class="map-scale">500 ft</div></div></div>
     <div class="view" id="album"><div class="view-head"><div><h3 data-en="Smart Album" data-zh="智能图集">Smart Album</h3><p data-en="Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction." data-zh="照片被整理为证据，而不只是缩略图：物种、置信度、相机、时间、目标匹配和人工纠错。">Photos are organized as evidence, not just thumbnails: species, confidence, camera, time, target match, and user correction.</p></div><button class="btn" data-en="Confirm all high-confidence" data-zh="确认所有高置信度">Confirm all high-confidence</button></div><div class="album"><div class="photo"><div class="cap"><b data-en="Whitetail buck · Pixie" data-zh="白尾鹿公鹿 · Pixie">Whitetail buck · Pixie</b><small data-en="04:16 · 86% confidence · possible Big 8" data-zh="04:16 · 86% 置信度 · 疑似 Big 8">04:16 · 86% confidence · possible Big 8</small></div></div><div class="photo"><div class="cap"><b data-en="Mature buck · Ridge" data-zh="成熟公鹿 · Ridge">Mature buck · Ridge</b><small data-en="18:12 · target event · add to profile" data-zh="18:12 · 目标事件 · 加入档案">18:12 · target event · add to profile</small></div></div><div class="photo"><div class="cap"><b data-en="Doe group · Creek Cam" data-zh="母鹿群 · Creek Cam">Doe group · Creek Cam</b><small data-en="05:44 · movement corridor evidence" data-zh="05:44 · 活动走廊证据">05:44 · movement corridor evidence</small></div></div><div class="photo"><div class="cap"><b data-en="Human activity" data-zh="人类活动">Human activity</b><small data-en="22:31 · high priority alert" data-zh="22:31 · 高优先级提醒">22:31 · high priority alert</small></div></div><div class="photo"><div class="cap"><b data-en="Empty trigger" data-zh="空触发">Empty trigger</b><small data-en="Auto-filtered and archived" data-zh="自动过滤并归档">Auto-filtered and archived</small></div></div><div class="photo"><div class="cap"><b data-en="Turkey · non-target" data-zh="火鸡 · 非目标">Turkey · non-target</b><small data-en="Automatically downgraded" data-zh="自动降权">Automatically downgraded</small></div></div></div></div>
     <div class="view" id="profile"><div class="view-head"><div><h3 data-en="Target Animal Profile: Big 8" data-zh="目标动物档案：Big 8">Target Animal Profile: Big 8</h3><p data-en="The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence." data-zh="Agent 聚合同一只动物的照片，并建立证据、规律、区域和置信度档案。">The agent groups likely same-animal captures and builds a profile with evidence, pattern, zone, and confidence.</p></div><span class="tag">82% confidence</span></div><div class="profile"><div class="buck-photo"></div><div class="grid"><div class="stats" style="margin:0"><div class="stat"><small data-en="Last 7 days" data-zh="最近 7 天">Last 7 days</small><b>6</b><em data-en="appearances" data-zh="次出现">appearances</em></div><div class="stat"><small data-en="Peak times" data-zh="高频时间">Peak times</small><b>5:20 / 6:10</b><em data-en="AM / PM" data-zh="清晨 / 黄昏">AM / PM</em></div><div class="stat"><small data-en="Common zone" data-zh="常出现区域">Common zone</small><b data-en="North edge" data-zh="北坡林缘">North edge</b><em>68%</em></div><div class="stat"><small data-en="Trend" data-zh="趋势">Trend</small><b data-en="Rising" data-zh="Rising">Rising</b><em>+15%</em></div></div><div class="mini"><h4 data-en="Activity distribution" data-zh="活跃时间分布">Activity distribution</h4><div class="bars"><span style="--h:8"></span><span style="--h:10"></span><span style="--h:12"></span><span style="--h:16"></span><span style="--h:52"></span><span style="--h:87"></span><span style="--h:66"></span><span style="--h:41"></span><span style="--h:18"></span><span style="--h:13"></span><span style="--h:12"></span><span style="--h:20"></span><span style="--h:18"></span><span style="--h:22"></span><span style="--h:28"></span><span style="--h:31"></span><span style="--h:44"></span><span style="--h:70"></span><span style="--h:91"></span><span style="--h:65"></span><span style="--h:46"></span><span style="--h:22"></span><span style="--h:15"></span><span style="--h:11"></span></div></div></div></div></div>
-    <div class="view" id="predict"><div class="view-head"><div><h3 data-en="Predictions & Pattern Analytics" data-zh="预测与规律分析">Predictions & Pattern Analytics</h3><p data-en="Compare today with your own historical captures and environmental conditions before deciding where to sit." data-zh="用自己的历史照片和环境条件对比今天，辅助决定蹲守位置。">Compare today with your own historical captures and environmental conditions before deciding where to sit.</p></div></div><div class="two"><div class="mini"><h4 data-en="Hourly movement forecast" data-zh="小时级活动预测">Hourly movement forecast</h4><div class="bars"><span style="--h:8"></span><span style="--h:12"></span><span style="--h:10"></span><span style="--h:14"></span><span style="--h:38"></span><span style="--h:63"></span><span style="--h:58"></span><span style="--h:31"></span><span style="--h:16"></span><span style="--h:12"></span><span style="--h:10"></span><span style="--h:13"></span><span style="--h:14"></span><span style="--h:18"></span><span style="--h:21"></span><span style="--h:28"></span><span style="--h:52"></span><span style="--h:84"></span><span style="--h:96"></span><span style="--h:67"></span><span style="--h:35"></span><span style="--h:20"></span><span style="--h:14"></span><span style="--h:10"></span></div></div><div class="grid"><div class="mini"><h4 data-en="Main drivers" data-zh="主要驱动因素">Main drivers</h4><p data-en="Wind direction, falling temperature, last-light movement, and three-day camera sequence near Pixie." data-zh="风向、降温、天黑前活动，以及 Pixie 附近连续三天相机记录。">Wind direction, falling temperature, last-light movement, and three-day camera sequence near Pixie.</p></div><div class="mini"><h4 data-en="Recommended camera move" data-zh="推荐移动相机">Recommended camera move</h4><p data-en="Move Ridge Cam 120 yards east to cover the suspected funnel between the creek and timber edge." data-zh="将 Ridge Cam 向东移动 120 码，覆盖溪谷与林缘之间的疑似收口点。">Move Ridge Cam 120 yards east to cover the suspected funnel between the creek and timber edge.</p></div></div></div></div>
+    <div class="view" id="predict">
+      <div class="view-head"><div><h3 data-en="Predictions & Pattern Analytics" data-zh="预测与规律分析">Predictions & Pattern Analytics</h3><p data-en="A multi-signal model that compares camera history, target identity, time of day, weather shifts, wind, moon, pressure, and terrain funnels before recommending a setup." data-zh="多信号模型会对比相机历史、目标身份、时段、天气变化、风向、月相、气压和地形收口，再给出蹲守建议。">A multi-signal model that compares camera history, target identity, time of day, weather shifts, wind, moon, pressure, and terrain funnels before recommending a setup.</p></div><span class="tag" data-en="Model refreshed 09:41" data-zh="模型 09:41 更新">Model refreshed 09:41</span></div>
+      <div class="prediction-board">
+        <div class="prediction-hero">
+          <div class="forecast-card"><h4 data-en="Hourly movement probability" data-zh="小时级活动概率">Hourly movement probability</h4><p data-en="The evening curve is materially stronger than the morning curve because target events, falling temperature, and wind discipline converge after 5:30 PM." data-zh="黄昏曲线明显强于清晨曲线，因为目标事件、降温和风向控制在 17:30 后汇合。">The evening curve is materially stronger than the morning curve because target events, falling temperature, and wind discipline converge after 5:30 PM.</p><div class="bars labeled"><span data-t="0" style="--h:8"></span><span data-t="1" style="--h:12"></span><span data-t="2" style="--h:10"></span><span data-t="3" style="--h:14"></span><span data-t="4" style="--h:38"></span><span data-t="5" style="--h:63"></span><span data-t="6" style="--h:58"></span><span data-t="7" style="--h:31"></span><span data-t="8" style="--h:16"></span><span data-t="9" style="--h:12"></span><span data-t="10" style="--h:10"></span><span data-t="11" style="--h:13"></span><span data-t="12" style="--h:14"></span><span data-t="13" style="--h:18"></span><span data-t="14" style="--h:21"></span><span data-t="15" style="--h:28"></span><span data-t="16" style="--h:52"></span><span data-t="17" style="--h:84"></span><span data-t="18" style="--h:96"></span><span data-t="19" style="--h:67"></span><span data-t="20" style="--h:35"></span><span data-t="21" style="--h:20"></span><span data-t="22" style="--h:14"></span><span data-t="23" style="--h:10"></span></div></div>
+          <div class="grid"><div class="mini"><h4 data-en="Model driver weights" data-zh="模型驱动权重">Model driver weights</h4><div class="driver-list"><div class="driver"><span data-en="Target history" data-zh="目标历史">Target history</span><div class="driver-track"><i style="--v:92%"></i></div><b>92</b></div><div class="driver"><span data-en="Wind discipline" data-zh="风向控制">Wind discipline</span><div class="driver-track"><i style="--v:84%"></i></div><b>84</b></div><div class="driver"><span data-en="Temperature shift" data-zh="气温变化">Temperature shift</span><div class="driver-track"><i style="--v:78%"></i></div><b>78</b></div><div class="driver"><span data-en="Moon / pressure" data-zh="月相 / 气压">Moon / pressure</span><div class="driver-track"><i style="--v:61%"></i></div><b>61</b></div><div class="driver"><span data-en="Device coverage" data-zh="设备覆盖">Device coverage</span><div class="driver-track"><i style="--v:56%"></i></div><b>56</b></div></div></div><div class="mini"><h4 data-en="Agent conclusion" data-zh="Agent 结论">Agent conclusion</h4><p data-en="Tonight is not a general high-activity day. It is a specific North Ridge opportunity created by a target-animal pattern and a short wind-safe evening window." data-zh="今晚不是泛泛的高活跃日，而是由目标动物规律和短暂风向安全窗口共同形成的 North Ridge 机会。">Tonight is not a general high-activity day. It is a specific North Ridge opportunity created by a target-animal pattern and a short wind-safe evening window.</p></div></div>
+        </div>
+        <div class="model-grid"><div class="model-card"><small data-en="Best setup" data-zh="最佳点位">Best setup</small><strong>North Ridge</strong><p data-en="Highest overlap of target history, route control, and last-light movement." data-zh="目标历史、路线控制和天黑前活动重合度最高。">Highest overlap of target history, route control, and last-light movement.</p></div><div class="model-card"><small data-en="Peak window" data-zh="峰值窗口">Peak window</small><strong>17:40</strong><p data-en="Model peak runs until 19:10, then falls sharply after full dark." data-zh="模型峰值持续至 19:10，完全入夜后快速下降。">Model peak runs until 19:10, then falls sharply after full dark.</p></div><div class="model-card"><small data-en="Target match" data-zh="目标匹配">Target match</small><strong>82%</strong><p data-en="Likely same Big 8 sequence across Pixie and Ridge captures." data-zh="Pixie 与 Ridge 照片中疑似同一只 Big 8。">Likely same Big 8 sequence across Pixie and Ridge captures.</p></div><div class="model-card"><small data-en="Watch condition" data-zh="观察条件">Watch condition</small><strong data-en="Good" data-zh="良好">Good</strong><p data-en="Temperature drop improves movement, but camera coverage is still thin." data-zh="降温提升活动概率，但相机覆盖仍偏薄。">Temperature drop improves movement, but camera coverage is still thin.</p></div></div>
+        <div class="forecast-zones"><div class="zone-card"><small class="tag" data-en="Primary" data-zh="首选">Primary</small><b>North Ridge</b><span class="tag">78/100</span></div><div class="zone-card"><small class="tag amber" data-en="Fallback" data-zh="备选">Fallback</small><b>Creek pinch</b><span class="tag amber">61/100</span></div><div class="zone-card"><small class="tag" data-en="Monitor" data-zh="监控">Monitor</small><b>Pixie edge</b><span class="tag">Camera alert</span></div></div>
+        <div class="signal-grid"><div class="signal-card"><small data-en="Pattern match" data-zh="规律匹配">Pattern match</small><b data-en="3 similar evenings found" data-zh="找到 3 个相似黄昏">3 similar evenings found</b><p data-en="All three had target events within 70 minutes of sunset and similar southwest wind." data-zh="三个相似黄昏都在日落前后 70 分钟内出现目标事件，并且风向接近西南风。">All three had target events within 70 minutes of sunset and similar southwest wind.</p></div><div class="signal-card"><small data-en="Recommended camera move" data-zh="推荐移动相机">Recommended camera move</small><b data-en="Ridge Cam +120 yd east" data-zh="Ridge Cam 向东 120 码">Ridge Cam +120 yd east</b><p data-en="Cover the suspected funnel between the creek line and the timber edge to improve tomorrow's model confidence." data-zh="覆盖溪谷线与林缘之间的疑似收口点，提高明天模型置信度。">Cover the suspected funnel between the creek line and the timber edge to improve tomorrow's model confidence.</p></div></div>
+      </div>
+    </div>
     <div class="view" id="chat"><div class="view-head"><div><h3 data-en="Agent Chat" data-zh="Agent 对话">Agent Chat</h3><p data-en="The chat is not a generic chatbot. It can call tools, query your trail-camera database, summarize evidence, and produce structured plans." data-zh="这不是普通聊天机器人。它可以调用工具、查询相机数据库、总结证据并生成结构化计划。">The chat is not a generic chatbot. It can call tools, query your trail-camera database, summarize evidence, and produce structured plans.</p></div></div><div class="chat"><div class="bubble"><b data-en="Hunter" data-zh="猎人">Hunter</b><br><span data-en="Where should I hunt tonight if I only have two hours?" data-zh="如果我今晚只有两个小时，应该去哪蹲？">Where should I hunt tonight if I only have two hours?</span></div><div class="bubble ai"><b>HuntAgent AI</b><br><span data-en="I recommend North Ridge near Pixie from 5:40–7:10 PM. Evidence: Big 8 appeared there 3 evenings in a row, wind stays favorable from the south creek entry, and the temperature drop matches your highest-activity historical pattern." data-zh="我建议 17:40–19:10 在 Pixie 附近的北坡点位。证据：Big 8 连续 3 个黄昏出现在那里，南侧溪谷进入路线风向有利，且降温符合你的历史高活跃规律。">I recommend North Ridge near Pixie from 5:40–7:10 PM. Evidence: Big 8 appeared there 3 evenings in a row, wind stays favorable from the south creek entry, and the temperature drop matches your highest-activity historical pattern.</span></div><div class="bubble"><b data-en="Hunter" data-zh="猎人">Hunter</b><br><span data-en="Show me only confirmed buck events from the last 7 days." data-zh="只显示过去 7 天已确认的公鹿事件。">Show me only confirmed buck events from the last 7 days.</span></div></div></div>
   </div></section>
   <section id="events" class="card section"><h3 data-en="Trail Camera Event Stream" data-zh="打猎相机事件流">Trail Camera Event Stream</h3><table class="table"><thead><tr><th data-en="Time" data-zh="时间">Time</th><th data-en="Camera" data-zh="相机">Camera</th><th data-en="AI Classification" data-zh="AI 识别">AI Classification</th><th data-en="Confidence" data-zh="置信度">Confidence</th><th data-en="Agent Action" data-zh="Agent 动作">Agent Action</th></tr></thead><tbody><tr><td>04:16</td><td>Pixie</td><td data-en="Whitetail buck · possible Big 8" data-zh="白尾鹿公鹿 · 疑似 Big 8">Whitetail buck · possible Big 8</td><td>86%</td><td data-en="Added to target evidence" data-zh="加入目标证据">Added to target evidence</td></tr><tr><td>03:52</td><td>Pixie</td><td data-en="Raccoon · non-target" data-zh="浣熊 · 非目标">Raccoon · non-target</td><td>91%</td><td data-en="Auto downgraded" data-zh="自动降权">Auto downgraded</td></tr><tr><td>22:31</td><td>Ridge</td><td data-en="Human activity" data-zh="人类活动">Human activity</td><td>78%</td><td data-en="High-priority alert" data-zh="高优先级提醒">High-priority alert</td></tr></tbody></table></section>
@@ -651,7 +1018,31 @@ section[id] {
 </main>
 </div>
 <script>
-const $=s=>document.querySelectorAll(s);const langBtn=document.getElementById('langBtn');let lang=localStorage.getItem('huntagent-lang')||'en';function setLang(l){lang=l;localStorage.setItem('huntagent-lang',l);document.documentElement.lang=l==='zh'?'zh-CN':'en';$('[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en});if(langBtn)langBtn.textContent=l==='en'?'中文':'English'}if(langBtn)langBtn.onclick=()=>setLang(lang==='en'?'zh':'en');setLang(lang);$('.tabs button').forEach(b=>b.onclick=()=>{$('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('.view').forEach(v=>v.classList.remove('active'));document.getElementById(b.dataset.view).classList.add('active')});
+const $ = s => document.querySelectorAll(s);
+const langBtn = document.getElementById('langBtn');
+const workspace = document.getElementById('workspace');
+let lang = localStorage.getItem('huntagent-lang') || 'en';
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('huntagent-lang', l);
+  document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+  $('[data-en]').forEach(el => {
+    el.textContent = el.dataset[l] || el.dataset.en;
+  });
+  if (langBtn) langBtn.textContent = l === 'en' ? '中文' : 'English';
+}
+function showView(viewId, options = {}) {
+  $('.tabs button').forEach(x => x.classList.toggle('active', x.dataset.view === viewId));
+  $('.view').forEach(v => v.classList.toggle('active', v.id === viewId));
+  const plan = document.getElementById('plan');
+  if (viewId === 'plan' && options.generated) plan.classList.add('generated');
+  if (workspace && options.scroll) workspace.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+if (langBtn) langBtn.onclick = () => setLang(lang === 'en' ? 'zh' : 'en');
+setLang(lang);
+$('.tabs button').forEach(b => b.onclick = () => showView(b.dataset.view));
+document.getElementById('generatePlanBtn')?.addEventListener('click', () => showView('plan', { generated: true, scroll: true }));
+document.getElementById('viewEvidenceBtn')?.addEventListener('click', () => showView('predict', { scroll: true }));
 </script>
 </body>
 </html>
